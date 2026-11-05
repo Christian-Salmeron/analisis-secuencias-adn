@@ -1,1 +1,12 @@
+# Código fuente
 
+Esta carpeta contendrá el código fuente del programa de análisis de secuencias de ADN, desarrollado en Python.
+
+Se prevé organizar el programa en diferentes módulos:
+
+- `main.py`: programa principal que permitirá introducir las secuencias y ejecutar los análisis.
+- `sequence_analysis.py`: funciones para analizar la composición nucleotídica, longitud y contenido GC.
+- `orf_detection.py`: funciones destinadas a identificar posibles marcos abiertos de lectura.
+- `sequence_comparison.py`: funciones para comparar secuencias utilizando herramientas bioinformáticas.
+
+Estos módulos están planificados, pero todavía no han sido implementados.
