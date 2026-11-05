@@ -1,1 +1,7 @@
+# Datos de entrada
 
+Esta carpeta está destinada a almacenar las secuencias de ADN que serán utilizadas como datos de entrada para el programa.
+
+Se prevé utilizar archivos en formato FASTA (.fasta), que permiten almacenar secuencias biológicas identificadas mediante una cabecera.
+
+El proyecto se encuentra actualmente en fase de planificación.
