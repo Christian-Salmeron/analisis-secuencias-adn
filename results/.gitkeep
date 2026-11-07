@@ -1,0 +1,15 @@
+# Resultados
+
+Esta carpeta estará destinada a almacenar los resultados generados por el programa de análisis de secuencias de ADN.
+
+Los resultados previstos incluyen:
+
+- Longitud y composición nucleotídica de las secuencias.
+- Porcentaje de contenido GC.
+- Secuencias complementarias y reverso-complementarias.
+- Posibles marcos abiertos de lectura (ORF).
+- Resultados de comparación con otras secuencias biológicas.
+
+Los resultados podrán almacenarse en archivos CSV o TXT.
+
+Actualmente no se han realizado análisis, ya que el proyecto se encuentra en fase de planificación.
