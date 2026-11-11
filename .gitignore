@@ -1,3 +1,28 @@
+# Temporary and backup files
 *.tmp
 *.bak
 *~
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+
+# R
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# RStudio
+*.Rproj
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Operating system
+.DS_Store
+Thumbs.db
+desktop.ini
