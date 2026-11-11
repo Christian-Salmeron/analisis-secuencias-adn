@@ -73,9 +73,10 @@ analisis-secuencias-adn/
 │   ├── gc_statistics.R
 │   ├── sequence_comparison.R
 │   ├── visualization.R
-│   └── report_analysis.R
+│   ├── report_analysis.R
+│   └── sequence_quality.R
 │
-├── tests/                        # Pruebas del programa
+├── test/                        # Pruebas del programa
 │   └── README.md
 │
 ├── results/                      # Resultados de los análisis
@@ -93,6 +94,40 @@ analisis-secuencias-adn/
 
 ---
 
+## 🚀 Instalación y ejecución
+
+### Requisitos previos
+
+Para utilizar el proyecto, será necesario disponer de las siguientes herramientas:
+
+- **Python 3:** para ejecutar los módulos de análisis desarrollados en Python.
+- **R:** para ejecutar los scripts de análisis estadístico y control de calidad.
+- **Git:** para clonar el repositorio y gestionar las versiones del proyecto.
+
+### Instalación
+
+1. Clonar el repositorio de GitHub:
+
+   ```bash
+   git clone https://github.com/Christian-Salmeron/analisis-secuencias-adn.git
+   ```
+
+2. Acceder al directorio del proyecto:
+
+   ```bash
+   cd analisis-secuencias-adn
+   ```
+
+3. Instalar las dependencias necesarias para ejecutar los módulos y scripts, una vez estén definidas en el proyecto.
+
+### Ejecución
+
+El proyecto se encuentra actualmente en fase de desarrollo. Las instrucciones específicas para ejecutar cada módulo y funcionalidad se incorporarán a medida que se complete su implementación.
+
+Los módulos de Python se encuentran en la carpeta `src/`, mientras que los scripts de R están organizados en la carpeta `R/`.
+
+---
+
 ## 🐍 Módulos Python
 
 Los archivos de la carpeta `src/` están destinados a implementar las funcionalidades principales de la aplicación.
@@ -100,7 +135,7 @@ Los archivos de la carpeta `src/` están destinados a implementar las funcionali
 | Archivo | Función prevista |
 |---|---|
 | `main.py` | Punto de entrada del programa y coordinación de los análisis. |
-| `sequence_validation.py` | Validación de secuencias y detección de caracteres no permitidos. |
+| `sequence_validation.py` | Validación de las secuencias según criterios de formato y contenido. |
 | `sequence_analysis.py` | Cálculo de longitud, composición nucleotídica y contenido GC. |
 | `sequence_complement.py` | Obtención de secuencias complementarias y reverso-complementarias. |
 | `orf_detection.py` | Identificación de posibles marcos abiertos de lectura. |
@@ -122,6 +157,7 @@ Los scripts de la carpeta `R/` estarán orientados al procesamiento estadístico
 | `sequence_comparison.R` | Comparación de características de secuencias entre organismos o grupos. |
 | `visualization.R` | Generación de gráficos e histogramas para representar los resultados. |
 | `report_analysis.R` | Elaboración de informes estadísticos. |
+| `sequence_quality.R` | Evaluación y resumen de parámetros de calidad de las secuencias. |
 
 Se prevé utilizar archivos CSV como formato de intercambio de resultados entre Python y R.
 
