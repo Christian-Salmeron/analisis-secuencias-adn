@@ -5,7 +5,9 @@
 
 Proyecto orientado al desarrollo de una herramienta bioinformática para el **análisis automatizado de secuencias de ADN**, combinando Python para el procesamiento de secuencias biológicas y R para el análisis estadístico y la visualización de resultados.
 
-La aplicación permitirá introducir secuencias de ADN, analizar su composición nucleotídica, identificar posibles regiones codificantes, traducirlas a aminoácidos y compararlas con secuencias disponibles en bases de datos biológicas.
+La aplicación permitirá a los usuarios introducir secuencias de ADN, caracterizar su composición nucleotídica, identificar posibles regiones codificantes, traducirlas a aminoácidos y compararlas con secuencias disponibles en bases de datos biológicas.
+
+Además, el proyecto incorporará análisis evolutivos y filogenéticos para investigar la conservación de secuencias, las relaciones genéticas y los patrones evolutivos entre secuencias y organismos relacionados.
 
 > **Estado del proyecto:** en fase de planificación y organización. Los módulos y funcionalidades descritos representan la estructura prevista de la aplicación y todavía no se consideran implementados.
 
@@ -26,6 +28,9 @@ Diseñar una herramienta bioinformática modular para el análisis de secuencias
 - Identificar posibles marcos abiertos de lectura (ORF).
 - Traducir regiones codificantes a secuencias de aminoácidos.
 - Comparar secuencias con bases de datos mediante BLAST.
+- Recuperar información biológica y funcional asociada a los genes y proteínas identificados.
+- Investigar la conservación evolutiva y la variabilidad genética mediante el alineamiento múltiple de secuencias.
+- Reconstruir e interpretar árboles filogenéticos para explorar las relaciones evolutivas.
 - Realizar análisis estadísticos mediante R.
 - Generar gráficos e informes de resultados.
 - Aplicar Git y GitHub para el control de versiones y el trabajo colaborativo.
@@ -43,9 +48,17 @@ Diseñar una herramienta bioinformática modular para el análisis de secuencias
 | Detección de ORF | Identificación de posibles marcos abiertos de lectura. | Python |
 | Traducción a proteínas | Conversión de regiones codificantes a aminoácidos. | Python |
 | Comparación con BLAST | Búsqueda de similitudes con secuencias biológicas conocidas. | Python |
+| Identificación de secuencias homólogas |  Identificación de secuencias relacionadas y recuperación de información sobre los organismos de origen. | Python |
+| Anotación funcional | Obtención de información sobre genes, proteínas, dominios y funciones biológicas asociadas. | Python |
+| Alineamiento múltiple de secuencias (MSA) | Alineamiento de secuencias homólogas para identificar posiciones conservadas y variables. | Python |
+| Análisis de conservación evolutiva | Evaluación de la conservación y variabilidad nucleotídica a lo largo de las secuencias alineadas. | Python y R  
+| Reconstrucción de árboles filogenéticos | Construcción de árboles filogenéticos mediante métodos basados en distancias evolutivas o máxima verosimilitud. | Python
+| Análisis de distancias genéticas | Cálculo y comparación de distancias evolutivas entre secuencias. | Python y R
+| Evaluación del soporte filogenético | Estimación de la robustez de las ramas de los árboles mediante análisis bootstrap. | Python
+| Interpretación filogenética | Identificación de grupos de secuencias relacionadas y estudio de sus relaciones evolutivas. | R
 | Análisis estadístico | Estudio de la distribución y variabilidad de los resultados. | R |
 | Comparación de secuencias | Comparación estadística de características entre secuencias. | R |
-| Visualización | Elaboración de histogramas, diagramas de cajas y otros gráficos. | R |
+| Visualización | Elaboración de histogramas, diagramas de cajas y otros gráficos, así como visualización de patrones de conservación y árboles filogenéticos. | R |
 | Generación de informes | Organización y presentación de los resultados obtenidos. | Python y R |
 
 ---
@@ -57,6 +70,7 @@ analisis-secuencias-adn/
 │
 ├── data/                         # Datos de entrada
 │   ├── example.fasta             # Secuencia de ADN de ejemplo
+│   ├── reference.fasta           # Secuencias de referencia
 │   └── metadata.csv              # Metadatos de las secuencias
 │
 ├── src/                          # Código fuente Python
@@ -67,21 +81,35 @@ analisis-secuencias-adn/
 │   ├── orf_detection.py
 │   ├── sequence_translation.py
 │   ├── blast_analysis.py
-│   └── report_generator.py
+│   ├── report_generator.py
+│   ├── multiple_sequence_alignment.py  
+│   ├── conservation_analysis.py        
+│   └── phylogenetic_analysis.py        
 │
 ├── R/                            # Scripts de análisis estadístico
 │   ├── gc_statistics.R
 │   ├── sequence_comparison.R
 │   ├── visualization.R
 │   ├── report_analysis.R
-│   └── sequence_quality.R
+│   ├── sequence_quality.R
+│   ├── conservation_analysis.R 
+│   └── phylogenetic_tree.R     
 │
 ├── test/                        # Pruebas del programa
-│   └── README.md
+│   ├── test_sequence_validation.py
+│   ├── test_sequence_analysis.py
+│   ├── test_multiple_sequence_alignment.py # NUEVO
+│   ├── test_conservation_analysis.py       # NUEVO
+│   └── test_phylogenetic_analysis.py
 │
 ├── results/                      # Resultados de los análisis
+│   ├── alignments/               # Alineamientos generados
+│   ├── phylogenetic_trees/       # Árboles filogenéticos
+│   └── reports/                  # Informes finales
 │
 ├── docs/                         # Documentación técnica
+│   ├── methodology.md            # Metodología del análisis
+│   └── phylogenetics.md          # Metodología filogenética
 │
 ├── .gitignore                    # Archivos excluidos de Git
 ├── LICENSE                       # Licencia del proyecto
