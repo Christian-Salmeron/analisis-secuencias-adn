@@ -1,1 +1,1 @@
-Requisitos para instalación del programa.
+# Requisitos para instalación del programa.
