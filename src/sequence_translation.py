@@ -1,1 +1,1 @@
-Traduce las regiones codificantes de ADN a aminoácidos.
+# Traduce las regiones codificantes de ADN a aminoácidos.
