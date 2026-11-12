@@ -1,324 +1,130 @@
+# Análisis de secuencias de ADN
 
-# 🧬 Análisis de Secuencias de ADN
+Proyecto académico colaborativo del Máster Universitario en Bioinformática de UNIR, orientado a organizar el desarrollo de herramientas para el análisis de secuencias de ADN mediante Python y R.
 
-### Proyecto de Bioinformática | Python & R
+## Objetivos
 
-Proyecto orientado al desarrollo de una herramienta bioinformática para el **análisis automatizado de secuencias de ADN**, combinando Python para el procesamiento de secuencias biológicas y R para el análisis estadístico y la visualización de resultados.
+- Crear y organizar un repositorio de un proyecto de bioinformática.
+- Utilizar Git y GitHub para registrar cambios y colaborar.
+- Documentar la estructura, los objetivos y el uso previsto del proyecto.
+- Planificar módulos para la lectura, validación y análisis de secuencias de ADN.
+- Separar el código, los datos, la documentación, las pruebas y los resultados.
 
-La aplicación permitirá introducir secuencias de ADN, analizar su composición nucleotídica, identificar posibles regiones codificantes, traducirlas a aminoácidos y compararlas con secuencias disponibles en bases de datos biológicas.
+## Estado del proyecto
 
-> **Estado del proyecto:** en fase de planificación y organización. Los módulos y funcionalidades descritos representan la estructura prevista de la aplicación y todavía no se consideran implementados.
+El proyecto se encuentra en fase de planificación y organización.
 
----
+Los archivos de los módulos describen las funcionalidades previstas y están pendientes de implementación. Su presencia en el repositorio no implica que esas funcionalidades puedan ejecutarse.
 
-## 🎯 Objetivos
+## Estructura del repositorio
 
-### Objetivo general
+| Archivo o carpeta | Contenido |
+|---|---|
+| `src/` | Módulos previstos para el análisis de secuencias mediante Python. |
+| `R/` | Archivos destinados a análisis estadísticos y visualización mediante R. |
+| `data/` | Datos de ejemplo y metadatos. |
+| `docs/` | Documentación del proyecto. |
+| `results/` | Carpeta destinada a los resultados de los análisis. |
+| `test/` | Carpeta destinada a las pruebas del proyecto. |
+| `README.md` | Presentación e instrucciones generales. |
+| `requirements.txt` | Archivo destinado a recoger las dependencias de Python. |
+| `.gitignore` | Reglas para excluir archivos temporales y otros archivos innecesarios del control de versiones. |
+| `LICENSE` | Licencia MIT del proyecto. |
 
-Diseñar una herramienta bioinformática modular para el análisis de secuencias de ADN que facilite su caracterización molecular y la interpretación de los resultados.
+### Archivos destacados
 
-### Objetivos específicos
+- `data/metadata.csv`: archivo destinado a los metadatos asociados a las secuencias.
+- `src/sequence_validation.py`: descripción del módulo previsto para validar secuencias de ADN.
+- `src/sequence_complement.py`: descripción del módulo previsto para obtener secuencias complementarias y reverso-complementarias.
+- `src/report_generator.py`: descripción del módulo previsto para generar informes de resultados.
+- `test/gitkeep`: archivo con la documentación inicial de la carpeta de pruebas.
 
-- Validar secuencias de ADN introducidas por el usuario.
-- Calcular la longitud y composición nucleotídica.
-- Determinar el porcentaje de contenido GC.
-- Obtener secuencias complementarias y reverso-complementarias.
-- Identificar posibles marcos abiertos de lectura (ORF).
-- Traducir regiones codificantes a secuencias de aminoácidos.
-- Comparar secuencias con bases de datos mediante BLAST.
-- Realizar análisis estadísticos mediante R.
-- Generar gráficos e informes de resultados.
-- Aplicar Git y GitHub para el control de versiones y el trabajo colaborativo.
+## Funcionalidades previstas
 
----
+Las siguientes funcionalidades forman parte de la planificación:
 
-## 🔬 Funcionalidades previstas
+- Lectura de secuencias de ADN en formato FASTA.
+- Validación de las secuencias introducidas.
+- Cálculo de la longitud y la composición de nucleótidos.
+- Cálculo del porcentaje de guanina y citosina, o contenido GC.
+- Obtención de secuencias complementarias y reverso-complementarias.
+- Generación de informes.
+- Análisis estadístico y representación gráfica mediante R.
 
-| Funcionalidad | Descripción | Lenguaje |
-|---|---|---|
-| Validación de secuencias | Comprobación de nucleótidos válidos y formatos de entrada. | Python |
-| Análisis nucleotídico | Cálculo de longitud y frecuencia de A, T, C y G. | Python |
-| Contenido GC | Cálculo del porcentaje de guaninas y citosinas. | Python |
-| Secuencias complementarias | Obtención de la complementaria y reverso-complementaria. | Python |
-| Detección de ORF | Identificación de posibles marcos abiertos de lectura. | Python |
-| Traducción a proteínas | Conversión de regiones codificantes a aminoácidos. | Python |
-| Comparación con BLAST | Búsqueda de similitudes con secuencias biológicas conocidas. | Python |
-| Análisis estadístico | Estudio de la distribución y variabilidad de los resultados. | R |
-| Comparación de secuencias | Comparación estadística de características entre secuencias. | R |
-| Visualización | Elaboración de histogramas, diagramas de cajas y otros gráficos. | R |
-| Generación de informes | Organización y presentación de los resultados obtenidos. | Python y R |
+### Secuencias complementarias
 
----
+El módulo `sequence_complement.py` estará destinado a aplicar las correspondencias `A ↔ T` y `C ↔ G`.
 
-## 📂 Estructura del repositorio
+Por ejemplo, para una secuencia original `5′-ATGC-3′`:
 
-```text
-analisis-secuencias-adn/
-│
-├── data/                         # Datos de entrada
-│   ├── example.fasta             # Secuencia de ADN de ejemplo
-│   └── metadata.csv              # Metadatos de las secuencias
-│
-├── src/                          # Código fuente Python
-│   ├── main.py
-│   ├── sequence_validation.py
-│   ├── sequence_analysis.py
-│   ├── sequence_complement.py
-│   ├── orf_detection.py
-│   ├── sequence_translation.py
-│   ├── blast_analysis.py
-│   └── report_generator.py
-│
-├── R/                            # Scripts de análisis estadístico
-│   ├── gc_statistics.R
-│   ├── sequence_comparison.R
-│   ├── visualization.R
-│   ├── report_analysis.R
-│   └── sequence_quality.R
-│
-├── test/                        # Pruebas del programa
-│   └── README.md
-│
-├── results/                      # Resultados de los análisis
-│
-├── docs/                         # Documentación técnica
-│
-├── .gitignore                    # Archivos excluidos de Git
-├── LICENSE                       # Licencia del proyecto
-├── README.md                     # Documentación principal
-├── CHANGELOG.md                  # Registro de cambios
-└── requirements.txt              # Dependencias de Python
+- Complementaria alineada: `3′-TACG-5′`.
+- Reverso-complementaria escrita en sentido 5′ → 3′: `5′-GCAT-3′`.
+
+## Tecnologías previstas
+
+- **Python:** procesamiento y análisis de secuencias.
+- **R:** análisis estadístico y visualización.
+- **Git:** control de versiones.
+- **GitHub:** alojamiento del repositorio y colaboración mediante ramas y pull requests.
+
+Las bibliotecas y sus versiones se concretarán durante la implementación.
+
+## Cómo obtener el proyecto
+
+### Clonar con Git
+
+```bash
+git clone https://github.com/Christian-Salmeron/analisis-secuencias-adn.git
+cd analisis-secuencias-adn
 ```
 
-**Nota:** esta estructura representa la organización prevista del proyecto. Algunos archivos de datos y componentes pueden estar pendientes de incorporación.
+### Descargar como ZIP
 
----
+1. Abrir el repositorio en GitHub.
+2. Seleccionar **Code → Download ZIP**.
+3. Descomprimir el archivo.
 
-## 🚀 Instalación y ejecución
+La descarga ZIP permite consultar los archivos, pero no incluye el historial de Git.
 
-### Requisitos previos
+## Uso actual
 
-Para utilizar el proyecto, será necesario disponer de las siguientes herramientas:
+Actualmente se puede explorar la estructura del repositorio y consultar la documentación de las funcionalidades previstas.
 
-- **Python 3:** para ejecutar los módulos de análisis desarrollados en Python.
-- **R:** para ejecutar los scripts de análisis estadístico y control de calidad.
-- **Git:** para clonar el repositorio y gestionar las versiones del proyecto.
+Todavía no se dispone de un programa completo ejecutable. Las instrucciones de instalación de dependencias y ejecución se incorporarán cuando los módulos estén implementados.
 
-### Instalación
+## Datos
 
-1. Clonar el repositorio de GitHub:
+La carpeta `data/` contiene los archivos de ejemplo y los metadatos del proyecto.
 
-   ```bash
-   git clone https://github.com/Christian-Salmeron/analisis-secuencias-adn.git
-   ```
+Los datos de ejemplo se utilizan con fines educativos. Al incorporar nuevos conjuntos de datos, deberán documentarse su origen, formato y condiciones de uso.
 
-2. Acceder al directorio del proyecto:
+## Pruebas
 
-   ```bash
-   cd analisis-secuencias-adn
-   ```
+La carpeta `test/` está reservada para las pruebas del proyecto y contiene documentación inicial en `test/gitkeep`.
 
-3. Instalar las dependencias necesarias para ejecutar los módulos y scripts, una vez estén definidas en el proyecto.
+Las pruebas automatizadas están pendientes de implementación. Se prevé comprobar, entre otros aspectos:
 
-### Ejecución
+- La lectura correcta de archivos de secuencias.
+- La detección de caracteres no válidos.
+- El cálculo de la longitud y del contenido GC.
+- La obtención de secuencias complementarias y reverso-complementarias.
 
-El proyecto se encuentra actualmente en fase de desarrollo. Las instrucciones específicas para ejecutar cada módulo y funcionalidad se incorporarán a medida que se complete su implementación.
 
-Los módulos de Python se encuentran en la carpeta `src/`, mientras que los scripts de R están organizados en la carpeta `R/`.
+## Próximos pasos
 
----
+- Implementar los módulos descritos.
+- Definir las dependencias necesarias.
+- Añadir instrucciones de ejecución con ejemplos reproducibles.
+- Incorporar pruebas automatizadas.
+- Documentar los resultados obtenidos.
+- Mantener el README actualizado conforme evolucione el proyecto.
 
-## 🐍 Módulos Python
+## Autoría
 
-Los archivos de la carpeta `src/` están destinados a implementar las funcionalidades principales de la aplicación.
+Proyecto desarrollado de forma colaborativa por los cuatro integrantes del grupo.
 
-| Archivo | Función prevista |
-|---|---|
-| `main.py` | Punto de entrada del programa y coordinación de los análisis. |
-| `sequence_validation.py` | Validación de las secuencias según criterios de formato y contenido. |
-| `sequence_analysis.py` | Cálculo de longitud, composición nucleotídica y contenido GC. |
-| `sequence_complement.py` | Obtención de secuencias complementarias y reverso-complementarias. |
-| `orf_detection.py` | Identificación de posibles marcos abiertos de lectura. |
-| `sequence_translation.py` | Traducción de regiones codificantes a aminoácidos. |
-| `blast_analysis.py` | Comparación de secuencias mediante BLAST. |
-| `report_generator.py` | Generación de informes con los resultados bioinformáticos. |
+Las contribuciones pueden consultarse en el historial de commits y en las pull requests del repositorio. Los titulares del copyright figuran en el archivo `LICENSE`.
 
-Esta organización modular facilitará el desarrollo independiente de las funcionalidades y su posterior integración.
+## Licencia
 
----
-
-## 📊 Scripts R
-
-Los scripts de la carpeta `R/` estarán orientados al procesamiento estadístico y a la visualización de los resultados procedentes de los análisis bioinformáticos.
-
-| Archivo | Función prevista |
-|---|---|
-| `gc_statistics.R` | Análisis estadístico del contenido GC de diferentes secuencias. |
-| `sequence_comparison.R` | Comparación de características de secuencias entre organismos o grupos. |
-| `visualization.R` | Generación de gráficos e histogramas para representar los resultados. |
-| `report_analysis.R` | Elaboración de informes estadísticos. |
-| `sequence_quality.R` | Evaluación y resumen de parámetros de calidad de las secuencias. |
-
-Se prevé utilizar archivos CSV como formato de intercambio de resultados entre Python y R.
-
----
-
-## 🧪 Pruebas y validación
-
-La carpeta `tests/` estará destinada a verificar el correcto funcionamiento de los módulos del programa.
-
-Se contempla desarrollar pruebas automatizadas utilizando **pytest**.
-
-### Pruebas previstas
-
-- Validación de secuencias correctas e incorrectas.
-- Comprobación de la longitud y el recuento de nucleótidos.
-- Verificación del cálculo del contenido GC.
-- Comprobación de secuencias complementarias y reverso-complementarias.
-- Evaluación de la detección de ORF.
-- Verificación de la traducción a aminoácidos.
-- Comprobación de los formatos de salida e informes.
-
-Las pruebas se implementarán una vez desarrolladas las funcionalidades correspondientes.
-
-La planificación detallada se encuentra en `tests/README.md`.
-
----
-
-## 🔄 Flujo de trabajo previsto
-
-El funcionamiento de la aplicación se organizará en ocho etapas:
-
-1. **Entrada de datos:** el usuario proporcionará una o varias secuencias de ADN, directamente o mediante archivos FASTA.
-2. **Validación:** Python comprobará el formato y los nucleótidos de las secuencias.
-3. **Análisis básico:** se calcularán longitud, composición nucleotídica y contenido GC.
-4. **Procesamiento molecular:** se obtendrán las secuencias complementarias y se identificarán posibles ORF.
-5. **Traducción:** las regiones codificantes seleccionadas podrán traducirse a aminoácidos.
-6. **Comparación:** se realizarán búsquedas de similitud mediante BLAST.
-7. **Análisis estadístico:** R procesará los resultados y generará representaciones gráficas.
-8. **Generación de informes:** los resultados se organizarán en archivos y documentos para facilitar su interpretación.
-
----
-
-## 🛠️ Tecnologías y herramientas previstas
-
-### Lenguajes
-
-- **Python 3:** procesamiento y análisis bioinformático.
-- **R:** análisis estadístico y visualización.
-
-### Bibliotecas y herramientas
-
-| Herramienta | Aplicación prevista |
-|---|---|
-| Biopython | Lectura, manipulación y análisis de secuencias. |
-| NCBI BLAST | Comparación de secuencias con bases de datos biológicas. |
-| Biostrings | Manipulación de secuencias biológicas en R. |
-| ggplot2 | Visualización estadística de resultados. |
-| pytest | Pruebas automatizadas de Python. |
-| Git | Control de versiones. |
-| GitHub | Alojamiento y colaboración. |
-
-### Gestión de dependencias
-
-El archivo `requirements.txt` está destinado a recoger las dependencias necesarias para el entorno Python.
-
-Las bibliotecas utilizadas en R se gestionarán por separado.
-
-Las versiones definitivas se establecerán cuando se implementen y validen los módulos.
-
----
-
-## 📁 Gestión de datos y resultados
-
-### Carpeta `data/`
-
-Almacenará las secuencias de ADN y sus metadatos.
-
-Los formatos previstos incluyen:
-
-- **FASTA (.fasta):** almacenamiento de secuencias biológicas.
-- **CSV (.csv):** almacenamiento de metadatos asociados.
-
-### Carpeta `results/`
-
-Almacenará los resultados generados durante los análisis.
-
-Los archivos previstos incluyen:
-
-- Tablas CSV con características de las secuencias.
-- Resultados de identificación de ORF.
-- Resultados de comparaciones mediante BLAST.
-- Gráficos generados con R.
-- Informes finales.
-
-### Carpeta `docs/`
-
-Contendrá documentación técnica y metodológica complementaria, como descripciones de algoritmos, diagramas del flujo de trabajo y procedimientos de análisis.
-
----
-
-## 📝 Historial de cambios
-
-El archivo `CHANGELOG.md` está destinado a registrar las modificaciones y mejoras más relevantes del proyecto.
-
-Permitirá documentar:
-
-- Incorporación de nuevos módulos.
-- Modificaciones de la estructura.
-- Ampliación de funcionalidades.
-- Actualizaciones de documentación.
-- Correcciones y mejoras futuras.
-
-Este registro complementará el historial de commits proporcionado por Git.
-
----
-
-## 🤝 Control de versiones y colaboración
-
-El proyecto utiliza **Git y GitHub** para facilitar el trabajo colaborativo entre los cuatro integrantes del equipo.
-
-### Procedimiento de colaboración
-
-1. **Repositorio principal:** centraliza la estructura y documentación del proyecto.
-2. **Fork:** cada integrante puede crear una copia del repositorio en su cuenta.
-3. **Commits:** los cambios se registran mediante confirmaciones con mensajes descriptivos.
-4. **Pull Requests:** las modificaciones se proponen para su revisión e incorporación.
-5. **Code Review:** los integrantes pueden revisar y comentar las contribuciones.
-6. **Merge:** los cambios aprobados se integran en la rama principal.
-7. **Sincronización:** los forks pueden actualizarse para incorporar cambios del repositorio original.
-
-Este procedimiento permitirá conservar un historial de las modificaciones y facilitará la coordinación entre los integrantes del grupo.
-
----
-
-## 🚧 Estado actual del proyecto
-
-**Fase de planificación y organización del repositorio.**
-
-Actualmente se ha planteado la arquitectura del proyecto y se han creado archivos correspondientes a los módulos Python y scripts R previstos.
-
-También se ha preparado la estructura destinada al almacenamiento de datos, documentación, resultados y pruebas.
-
-**Las funcionalidades del programa todavía no están implementadas ni validadas.** El repositorio constituye una propuesta inicial para un futuro desarrollo bioinformático.
-
----
-
-## 🎓 Contexto académico
-
-Este proyecto se desarrolla como parte de la actividad grupal **«GitHub: Crear un repositorio GitHub. Control de versiones»**, correspondiente a la asignatura **Introducción a la Programación Científica**, del Máster Universitario en Bioinformática de la **Universidad Internacional de La Rioja (UNIR)**.
-
-La finalidad principal de esta actividad es adquirir experiencia práctica en:
-
-- Creación y configuración de repositorios GitHub.
-- Organización de proyectos de programación científica.
-- Gestión de archivos y directorios.
-- Registro y seguimiento de cambios.
-- Trabajo colaborativo mediante forks y pull requests.
-- Elaboración de documentación técnica.
-
----
-
-## 📄 Licencia
-
-Este proyecto se distribuye bajo la **licencia MIT**, cuyas condiciones pueden consultarse en el archivo `LICENSE`.
+Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para conocer sus condiciones.
