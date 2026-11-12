@@ -37,7 +37,7 @@ Los archivos de los módulos describen las funcionalidades previstas y están pe
 - `src/sequence_validation.py`: descripción del módulo previsto para validar secuencias de ADN.
 - `src/sequence_complement.py`: descripción del módulo previsto para obtener secuencias complementarias y reverso-complementarias.
 - `src/report_generator.py`: descripción del módulo previsto para generar informes de resultados.
-- `test/gitkeep`: archivo con la documentación inicial de la carpeta de pruebas.
+- `test/README.md`: archivo con la documentación inicial de la carpeta de pruebas.
 
 ## Funcionalidades previstas
 
@@ -100,7 +100,7 @@ Los datos de ejemplo se utilizan con fines educativos. Al incorporar nuevos conj
 
 ## Pruebas
 
-La carpeta `test/` está reservada para las pruebas del proyecto y contiene documentación inicial en `test/gitkeep`.
+La carpeta `test/` está reservada para las pruebas del proyecto y contiene documentación inicial en `test/README.md`.
 
 Las pruebas automatizadas están pendientes de implementación. Se prevé comprobar, entre otros aspectos:
 
