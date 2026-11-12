@@ -1,1 +1,1 @@
-DNA sequence quality control script
+# DNA sequence quality control script
