@@ -2,7 +2,9 @@
 
 Proyecto académico colaborativo de la asignatura Introducción a la Programación Científica del Máster Universitario en Bioinformática de UNIR.
 
-El proyecto propone desarrollar herramientas en Python y R para analizar secuencias de ADN. La actividad actual se centra en crear, organizar y documentar el repositorio y utilizar Git y GitHub para el control de versiones y la colaboración.
+El proyecto propone desarrollar una herramienta bioinformática utilizando Python y R para el análisis, identificación y caracterización de secuencias de ADN. Además, contempla el estudio de la conservación evolutiva y las relaciones filogenéticas entre secuencias homólogas.
+
+La actividad actual se centra en desarrollar, organizar y documentar el repositorio, así como utilizar Git y GitHub para el control de versiones y la colaboración.
 
 ## Estado actual
 
@@ -24,8 +26,11 @@ Los módulos de análisis y las pruebas automatizadas están pendientes de imple
 - Utilizar Git y GitHub para registrar, revisar e integrar cambios.
 - Facilitar la colaboración entre los integrantes del equipo.
 - Documentar los datos, los módulos y el flujo de trabajo previsto.
-- Planificar herramientas para validar, analizar y comparar secuencias de ADN.
-
+- Desarrollar herramientas para validar, analizar y caracterizar secuencias de ADN.
+- Identificar secuencias homólogas y obtener información biológica mediante la comparación con bases de datos.
+- Analizar la conservación evolutiva y las relaciones filogenéticas entre secuencias.
+- Generar representaciones gráficas e informes que faciliten la interpretación de los resultados.
+  
 ## Estructura del repositorio
 
 | Ruta | Contenido |
@@ -33,7 +38,7 @@ Los módulos de análisis y las pruebas automatizadas están pendientes de imple
 | `src/` | Módulos previstos de Python y documentación del código. |
 | `R/` | Scripts previstos para resúmenes estadísticos, comparación y visualización. |
 | `data/` | Secuencias artificiales de ejemplo, metadatos y documentación de entrada. |
-| `docs/` | Metodología prevista del análisis. |
+| `docs/` | Documentación técnica y metodológica del proyecto. |
 | `results/` | Documentación de las salidas previstas y ubicación futura de los resultados. |
 | `test/` | Documentación de las pruebas previstas. |
 | `README.md` | Presentación general del proyecto. |
@@ -53,7 +58,10 @@ Los módulos de análisis y las pruebas automatizadas están pendientes de imple
 | `src/orf_detection.py` | Identificar posibles marcos abiertos de lectura (ORF). |
 | `src/sequence_translation.py` | Traducir las regiones seleccionadas a secuencias de aminoácidos. |
 | `src/blast_analysis.py` | Realizar búsquedas de similitud mediante BLAST. |
-| `src/report_generator.py` | Organizar y exportar resultados e incidencias. |
+| `src/multiple_sequence_alignment.py` | Realizar alineamientos múltiples de secuencias homólogas. |
+| `src/conservation_analysis.py` | Analizar la conservación y variabilidad de las posiciones del alineamiento. |
+| `src/phylogenetic_analysis.py` | Calcular distancias genéticas y reconstruir árboles filogenéticos. |
+| `src/report_generator.py` | Organizar y exportar resultados e incidencias de los análisis. |
 
 Consulta la [documentación de los módulos de Python](src/README.md).
 
@@ -64,6 +72,8 @@ Consulta la [documentación de los módulos de Python](src/README.md).
 | `R/gc_statistics.R` | Elaborar resúmenes estadísticos del contenido GC. |
 | `R/sequence_comparison.R` | Comparar características entre secuencias y, cuando existan metadatos apropiados, entre grupos o especies. |
 | `R/sequence_quality.R` | Resumir indicadores de calidad básica, como bases ambiguas, registros vacíos o posibles duplicados. |
+| `R/conservation_analysis.R` | Analizar y representar gráficamente los niveles de conservación evolutiva. |
+| `R/phylogenetic_tree.R` | Representar y analizar árboles filogenéticos. |
 | `R/visualization.R` | Generar gráficos de las características analizadas. |
 | `R/report_analysis.R` | Elaborar informes estadísticos a partir de los resultados de Python. |
 
@@ -75,14 +85,33 @@ El control de calidad previsto no incluye puntuaciones Phred, ya que los archivo
 2. Validar su formato y los caracteres de las secuencias.
 3. Calcular la longitud, la composición nucleotídica y el contenido GC.
 4. Ejecutar los análisis adicionales seleccionados: secuencias complementarias, detección de ORF, traducción o búsquedas mediante BLAST.
-5. Exportar tablas de resultados e incidencias.
-6. Utilizar las tablas en R para elaborar resúmenes, comparaciones y gráficos.
+5. Alinear las secuencias homólogas para identificar similitudes, diferencias y regiones conservadas.
+6. Evaluar la conservación evolutiva y reconstrucción de árboles filogenéticos para estudiar las relaciones evolutivas entre las secuencias.
+7. Procesamiento y resumen de los resultados mediante métodos estadísticos para identificar patrones y diferencias relevantes.
+8. Exportar tablas de resultados e incidencias.
+9. Generación de representaciones gráficas de los resultados mediante herramientas de R.
+10. Organización de los resultados en archivos y documentos para facilitar su interpretación. 
 
 Los registros excluidos de un análisis deberán conservarse en el informe de validación junto con el motivo de exclusión.
 
 Las políticas para caracteres ambiguos y los parámetros de los análisis adicionales se concretarán antes de su implementación.
 
 Consulta la [metodología prevista](docs/metodologia.md).
+
+## Análisis evolutivo y filogenético
+
+El proyecto contempla un bloque específico para estudiar la conservación y las relaciones evolutivas entre secuencias homólogas.
+
+Este análisis incluirá cuatro procedimientos principales:
+
+1. **Alineamiento múltiple de secuencias (MSA):** comparación y alineamiento de secuencias homólogas mediante herramientas como MAFFT o MUSCLE.
+2. **Análisis de conservación evolutiva:** identificación de posiciones conservadas y variables, así como cálculo de frecuencias nucleotídicas.
+3. **Reconstrucción de árboles filogenéticos:** estudio de las relaciones evolutivas mediante métodos basados en distancias genéticas o máxima verosimilitud.
+4. **Interpretación filogenética:** identificación de agrupaciones, clados, distancias genéticas y evaluación del soporte de las ramas mediante métodos como Bootstrap.
+
+Entre las herramientas previstas se encuentran BLAST, MAFFT, MUSCLE, IQ-TREE, FastTree y los paquetes de R ape y ggtree.
+
+Consulta la [documentación específica de análisis filogenético](docs/phylogenetics.md).
 
 ## Datos de ejemplo
 
@@ -92,6 +121,11 @@ La carpeta `data/` contiene:
 - [`metadata.csv`](data/metadata.csv): información descriptiva asociada a sus identificadores.
 
 Estas secuencias tienen una finalidad educativa. No representan organismos reales ni proceden de una base de datos biológica.
+
+La estructura prevista también contempla:
+
+- [`data/input/`](data/example.fasta): secuencias introducidas por el usuario.
+- [`data/reference/`](data/reference.fasta): secuencias de referencia obtenidas de bases de datos biológicas.
 
 Consulta la [documentación de los datos](data/README.md).
 
@@ -104,7 +138,11 @@ Las salidas previstas incluyen:
 - Secuencias complementarias y reverso-complementarias.
 - Posibles ORF y traducciones de las regiones seleccionadas.
 - Resultados de búsquedas de similitud.
-- Resúmenes estadísticos y gráficos.
+- Alineamientos múltiples de secuencias.
+- Resultados del análisis de conservación evolutiva.
+- Árboles filogenéticos reconstruidos.
+- Gráficos y representaciones estadísticas generados con R.
+- Informes finales con los resultados integrados.
 
 Se almacenarán en `results/` y conservarán los identificadores de las secuencias de entrada.
 
@@ -146,6 +184,9 @@ La carpeta `test/` contiene el plan inicial de pruebas. Se prevé utilizar `pyte
 - Cálculo de longitud, composición nucleotídica y contenido GC.
 - Obtención de secuencias complementarias y reverso-complementarias.
 - Detección de ORF y traducción.
+- Generación de alineamientos múltiples.
+- Identificación de posiciones conservadas y variables.
+- Cálculo de distancias genéticas y reconstrucción de árboles filogenéticos.
 - Generación de informes.
 
 Las pruebas automatizadas todavía no están implementadas ni ejecutadas.
@@ -171,6 +212,8 @@ Los títulos y las descripciones de los commits deben reflejar el trabajo realiz
 - Concretar las políticas de validación y los formatos de intercambio.
 - Implementar los módulos de Python.
 - Desarrollar los scripts de R.
+- Incorporar los procedimientos de alineamiento múltiple y análisis de conservación.
+- Implementar la reconstrucción e interpretación de árboles filogenéticos.
 - Definir y documentar las dependencias.
 - Incorporar y ejecutar pruebas automatizadas.
 - Añadir ejemplos reproducibles de ejecución.
@@ -181,6 +224,7 @@ Los títulos y las descripciones de los commits deben reflejar el trabajo realiz
 - [Módulos de Python](src/README.md)
 - [Datos de entrada](data/README.md)
 - [Metodología prevista](docs/metodologia.md)
+- [Análisis evolutivo y filogenético](docs/phylogenetics.md)
 - [Resultados previstos](results/README.md)
 - [Plan de pruebas](test/README.md)
 - [Historial de cambios](CHANGELOG.md)
@@ -197,3 +241,5 @@ Las contribuciones pueden consultarse en el historial de commits y en las pull r
 ## Licencia
 
 Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para conocer sus condiciones.
+
+
