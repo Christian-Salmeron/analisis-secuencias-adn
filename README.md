@@ -1,77 +1,120 @@
 # Análisis de secuencias de ADN
 
-Proyecto académico colaborativo del Máster Universitario en Bioinformática de UNIR, orientado a organizar el desarrollo de herramientas para el análisis de secuencias de ADN mediante Python y R.
+Proyecto académico colaborativo de la asignatura Introducción a la Programación Científica del Máster Universitario en Bioinformática de UNIR.
 
-## Objetivos
+El proyecto propone desarrollar herramientas en Python y R para analizar secuencias de ADN. La actividad actual se centra en crear, organizar y documentar el repositorio y utilizar Git y GitHub para el control de versiones y la colaboración.
 
-- Crear y organizar un repositorio de un proyecto de bioinformática.
-- Utilizar Git y GitHub para registrar cambios y colaborar.
-- Documentar la estructura, los objetivos y el uso previsto del proyecto.
-- Planificar módulos para la lectura, validación y análisis de secuencias de ADN.
-- Separar el código, los datos, la documentación, las pruebas y los resultados.
-
-## Estado del proyecto
+## Estado actual
 
 El proyecto se encuentra en fase de planificación y organización.
 
-Los archivos de los módulos describen las funcionalidades previstas y están pendientes de implementación. Su presencia en el repositorio no implica que esas funcionalidades puedan ejecutarse.
+Actualmente se dispone de:
+
+- Una estructura de carpetas para código, datos, documentación, pruebas y resultados.
+- Dos secuencias artificiales de ejemplo y sus metadatos.
+- Archivos Python y R con descripciones de sus funciones previstas.
+- Documentación del flujo de análisis y de las pruebas previstas.
+- Un historial de cambios y contribuciones mediante commits y pull requests.
+
+Los módulos de análisis y las pruebas automatizadas están pendientes de implementación. Todavía no hay un programa funcional ejecutable ni resultados de análisis generados.
+
+## Objetivos
+
+- Organizar un proyecto de bioinformática de forma clara y coherente.
+- Utilizar Git y GitHub para registrar, revisar e integrar cambios.
+- Facilitar la colaboración entre los integrantes del equipo.
+- Documentar los datos, los módulos y el flujo de trabajo previsto.
+- Planificar herramientas para validar, analizar y comparar secuencias de ADN.
 
 ## Estructura del repositorio
 
-| Archivo o carpeta | Contenido |
+| Ruta | Contenido |
 |---|---|
-| `src/` | Módulos previstos para el análisis de secuencias mediante Python. |
-| `R/` | Archivos destinados a análisis estadísticos y visualización mediante R. |
-| `data/` | Datos de ejemplo y metadatos. |
-| `docs/` | Documentación del proyecto. |
-| `results/` | Carpeta destinada a los resultados de los análisis. |
-| `test/` | Carpeta destinada a las pruebas del proyecto. |
-| `README.md` | Presentación e instrucciones generales. |
-| `requirements.txt` | Archivo destinado a recoger las dependencias de Python. |
+| `src/` | Módulos previstos de Python y documentación del código. |
+| `R/` | Scripts previstos para resúmenes estadísticos, comparación y visualización. |
+| `data/` | Secuencias artificiales de ejemplo, metadatos y documentación de entrada. |
+| `docs/` | Metodología prevista del análisis. |
+| `results/` | Documentación de las salidas previstas y ubicación futura de los resultados. |
+| `test/` | Documentación de las pruebas previstas. |
+| `README.md` | Presentación general del proyecto. |
+| `CHANGELOG.md` | Historial de versiones y cambios del proyecto. |
+| `requirements.txt` | Archivo reservado para las dependencias de Python. |
 | `.gitignore` | Reglas para excluir archivos temporales y otros archivos innecesarios del control de versiones. |
-| `LICENSE` | Licencia MIT del proyecto. |
+| `LICENSE` | Licencia MIT. |
 
-### Archivos destacados
+## Módulos previstos de Python
 
-- `data/metadata.csv`: archivo destinado a los metadatos asociados a las secuencias.
-- `src/sequence_validation.py`: descripción del módulo previsto para validar secuencias de ADN.
-- `src/sequence_complement.py`: descripción del módulo previsto para obtener secuencias complementarias y reverso-complementarias.
-- `src/report_generator.py`: descripción del módulo previsto para generar informes de resultados.
-- `test/README.md`: archivo con la documentación inicial de la carpeta de pruebas.
+| Archivo | Función prevista |
+|---|---|
+| `src/main.py` | Coordinar el flujo del programa y los análisis seleccionados. |
+| `src/sequence_validation.py` | Validar el formato FASTA y el contenido de las secuencias. |
+| `src/sequence_analysis.py` | Calcular longitud, composición nucleotídica y contenido GC. |
+| `src/sequence_complement.py` | Obtener secuencias complementarias y reverso-complementarias. |
+| `src/orf_detection.py` | Identificar posibles marcos abiertos de lectura (ORF). |
+| `src/sequence_translation.py` | Traducir las regiones seleccionadas a secuencias de aminoácidos. |
+| `src/blast_analysis.py` | Realizar búsquedas de similitud mediante BLAST. |
+| `src/report_generator.py` | Organizar y exportar resultados e incidencias. |
 
-## Funcionalidades previstas
+Consulta la [documentación de los módulos de Python](src/README.md).
 
-Las siguientes funcionalidades forman parte de la planificación:
+## Scripts previstos de R
 
-- Lectura de secuencias de ADN en formato FASTA.
-- Validación de las secuencias introducidas.
-- Cálculo de la longitud y la composición de nucleótidos.
-- Cálculo del porcentaje de guanina y citosina, o contenido GC.
-- Obtención de secuencias complementarias y reverso-complementarias.
-- Generación de informes.
-- Análisis estadístico y representación gráfica mediante R.
+| Archivo | Función prevista |
+|---|---|
+| `R/gc_statistics.R` | Elaborar resúmenes estadísticos del contenido GC. |
+| `R/sequence_comparison.R` | Comparar características entre secuencias y, cuando existan metadatos apropiados, entre grupos o especies. |
+| `R/sequence_quality.R` | Resumir indicadores de calidad básica, como bases ambiguas, registros vacíos o posibles duplicados. |
+| `R/visualization.R` | Generar gráficos de las características analizadas. |
+| `R/report_analysis.R` | Elaborar informes estadísticos a partir de los resultados de Python. |
 
-### Secuencias complementarias
+El control de calidad previsto no incluye puntuaciones Phred, ya que los archivos FASTA no contienen puntuaciones de calidad de lectura.
 
-El módulo `sequence_complement.py` estará destinado a aplicar las correspondencias `A ↔ T` y `C ↔ G`.
+## Flujo de trabajo previsto
 
-Por ejemplo, para una secuencia original `5′-ATGC-3′`:
+1. Leer los registros de un archivo FASTA y conservar sus identificadores.
+2. Validar su formato y los caracteres de las secuencias.
+3. Calcular la longitud, la composición nucleotídica y el contenido GC.
+4. Ejecutar los análisis adicionales seleccionados: secuencias complementarias, detección de ORF, traducción o búsquedas mediante BLAST.
+5. Exportar tablas de resultados e incidencias.
+6. Utilizar las tablas en R para elaborar resúmenes, comparaciones y gráficos.
 
-- Complementaria alineada: `3′-TACG-5′`.
-- Reverso-complementaria escrita en sentido 5′ → 3′: `5′-GCAT-3′`.
+Los registros excluidos de un análisis deberán conservarse en el informe de validación junto con el motivo de exclusión.
 
-## Tecnologías previstas
+Las políticas para caracteres ambiguos y los parámetros de los análisis adicionales se concretarán antes de su implementación.
 
-- **Python:** procesamiento y análisis de secuencias.
-- **R:** análisis estadístico y visualización.
-- **Git:** control de versiones.
-- **GitHub:** alojamiento del repositorio y colaboración mediante ramas y pull requests.
+Consulta la [metodología prevista](docs/metodologia.md).
 
-Las bibliotecas y sus versiones se concretarán durante la implementación.
+## Datos de ejemplo
+
+La carpeta `data/` contiene:
+
+- [`example.fasta`](data/example.fasta): dos secuencias artificiales de ADN.
+- [`metadata.csv`](data/metadata.csv): información descriptiva asociada a sus identificadores.
+
+Estas secuencias tienen una finalidad educativa. No representan organismos reales ni proceden de una base de datos biológica.
+
+Consulta la [documentación de los datos](data/README.md).
+
+## Resultados previstos
+
+Las salidas previstas incluyen:
+
+- Tablas de longitud, composición nucleotídica y contenido GC.
+- Informes de validación.
+- Secuencias complementarias y reverso-complementarias.
+- Posibles ORF y traducciones de las regiones seleccionadas.
+- Resultados de búsquedas de similitud.
+- Resúmenes estadísticos y gráficos.
+
+Se almacenarán en `results/` y conservarán los identificadores de las secuencias de entrada.
+
+Actualmente no se han generado resultados. Consulta la [documentación de las salidas previstas](results/README.md).
 
 ## Cómo obtener el proyecto
 
 ### Clonar con Git
+
+Es necesario disponer de Git para utilizar esta opción.
 
 ```bash
 git clone https://github.com/Christian-Salmeron/analisis-secuencias-adn.git
@@ -84,46 +127,72 @@ cd analisis-secuencias-adn
 2. Seleccionar **Code → Download ZIP**.
 3. Descomprimir el archivo.
 
-La descarga ZIP permite consultar los archivos, pero no incluye el historial de Git.
+La descarga ZIP contiene los archivos del proyecto, pero no conserva el historial de Git.
 
-## Uso actual
+## Uso actual y dependencias
 
-Actualmente se puede explorar la estructura del repositorio y consultar la documentación de las funcionalidades previstas.
+Actualmente se puede consultar la documentación, explorar los datos de ejemplo y revisar la planificación de los módulos.
 
-Todavía no se dispone de un programa completo ejecutable. Las instrucciones de instalación de dependencias y ejecución se incorporarán cuando los módulos estén implementados.
+Los archivos Python y R contienen descripciones de funcionalidades previstas. Ejecutarlos no realiza los análisis descritos.
 
-## Datos
+`requirements.txt` está reservado para las futuras dependencias de Python; actualmente no declara paquetes. Las dependencias y sus versiones, junto con las instrucciones de instalación y ejecución, se añadirán durante la implementación.
 
-La carpeta `data/` contiene los archivos de ejemplo y los metadatos del proyecto.
+## Pruebas previstas
 
-Los datos de ejemplo se utilizan con fines educativos. Al incorporar nuevos conjuntos de datos, deberán documentarse su origen, formato y condiciones de uso.
+La carpeta `test/` contiene el plan inicial de pruebas. Se prevé utilizar `pytest` para comprobar aspectos como:
 
-## Pruebas
+- Lectura y validación de registros FASTA.
+- Detección de caracteres no permitidos.
+- Cálculo de longitud, composición nucleotídica y contenido GC.
+- Obtención de secuencias complementarias y reverso-complementarias.
+- Detección de ORF y traducción.
+- Generación de informes.
 
-La carpeta `test/` está reservada para las pruebas del proyecto y contiene documentación inicial en `test/README.md`.
+Las pruebas automatizadas todavía no están implementadas ni ejecutadas.
 
-Las pruebas automatizadas están pendientes de implementación. Se prevé comprobar, entre otros aspectos:
+Consulta el [plan de pruebas](test/README.md).
 
-- La lectura correcta de archivos de secuencias.
-- La detección de caracteres no válidos.
-- El cálculo de la longitud y del contenido GC.
-- La obtención de secuencias complementarias y reverso-complementarias.
+## Colaboración y control de versiones
 
+El historial del repositorio recoge las contribuciones del equipo y la integración de cambios mediante pull requests.
+
+Para nuevas contribuciones, se propone:
+
+1. Crear una rama para el cambio.
+2. Modificar los archivos correspondientes.
+3. Registrar los cambios con un mensaje de commit que explique la acción realizada.
+4. Publicar la rama y abrir una pull request.
+5. Revisar e integrar los cambios en `main`.
+
+Los títulos y las descripciones de los commits deben reflejar el trabajo realizado y distinguir la documentación de la implementación de funcionalidades.
 
 ## Próximos pasos
 
-- Implementar los módulos descritos.
-- Definir las dependencias necesarias.
-- Añadir instrucciones de ejecución con ejemplos reproducibles.
-- Incorporar pruebas automatizadas.
-- Documentar los resultados obtenidos.
-- Mantener el README actualizado conforme evolucione el proyecto.
+- Concretar las políticas de validación y los formatos de intercambio.
+- Implementar los módulos de Python.
+- Desarrollar los scripts de R.
+- Definir y documentar las dependencias.
+- Incorporar y ejecutar pruebas automatizadas.
+- Añadir ejemplos reproducibles de ejecución.
+- Documentar los resultados y mantener actualizada la información del proyecto.
 
-## Autoría
+## Documentación
 
-Proyecto desarrollado de forma colaborativa por los cuatro integrantes del grupo.
+- [Módulos de Python](src/README.md)
+- [Datos de entrada](data/README.md)
+- [Metodología prevista](docs/metodologia.md)
+- [Resultados previstos](results/README.md)
+- [Plan de pruebas](test/README.md)
+- [Historial de cambios](CHANGELOG.md)
 
-Las contribuciones pueden consultarse en el historial de commits y en las pull requests del repositorio. Los titulares del copyright figuran en el archivo `LICENSE`.
+## Equipo
+
+- Nicole María Arias Espinoza.
+- Inmaculada Martínez Olmo.
+- Marta Ruiz Alcázar.
+- Christian Salmerón Conde.
+
+Las contribuciones pueden consultarse en el historial de commits y en las pull requests del repositorio.
 
 ## Licencia
 
