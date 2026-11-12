@@ -1,357 +1,243 @@
+# Análisis de secuencias de ADN
 
-# 🧬 Análisis de Secuencias de ADN
+Proyecto académico colaborativo de la asignatura Introducción a la Programación Científica del Máster Universitario en Bioinformática de UNIR.
 
-### Proyecto de Bioinformática | Python & R
+El proyecto propone desarrollar una herramienta bioinformática utilizando Python y R para el análisis, identificación y caracterización de secuencias de ADN. Además, contempla el estudio de la conservación evolutiva y las relaciones filogenéticas entre secuencias homólogas.
 
-Proyecto orientado al desarrollo de una herramienta bioinformática para el **análisis automatizado de secuencias de ADN**, combinando Python para el procesamiento de secuencias biológicas y R para el análisis estadístico y la visualización de resultados.
+La actividad actual se centra en desarrollar, organizar y documentar el repositorio, así como utilizar Git y GitHub para el control de versiones y la colaboración.
 
-La aplicación permitirá a los usuarios introducir secuencias de ADN, caracterizar su composición nucleotídica, identificar posibles regiones codificantes, traducirlas a aminoácidos y compararlas con secuencias disponibles en bases de datos biológicas.
+## Estado actual
 
-Además, el proyecto incorporará análisis evolutivos y filogenéticos para investigar la conservación de secuencias, las relaciones genéticas y los patrones evolutivos entre secuencias y organismos relacionados.
+El proyecto se encuentra en fase de planificación y organización.
 
-> **Estado del proyecto:** en fase de planificación y organización. Los módulos y funcionalidades descritos representan la estructura prevista de la aplicación y todavía no se consideran implementados.
+Actualmente se dispone de:
 
----
+- Una estructura de carpetas para código, datos, documentación, pruebas y resultados.
+- Dos secuencias artificiales de ejemplo y sus metadatos.
+- Archivos Python y R con descripciones de sus funciones previstas.
+- Documentación del flujo de análisis y de las pruebas previstas.
+- Un historial de cambios y contribuciones mediante commits y pull requests.
 
-## 🎯 Objetivos
+Los módulos de análisis y las pruebas automatizadas están pendientes de implementación. Todavía no hay un programa funcional ejecutable ni resultados de análisis generados.
 
-### Objetivo general
+## Objetivos
 
-Diseñar una herramienta bioinformática modular para el análisis de secuencias de ADN que facilite su caracterización molecular y la interpretación de los resultados.
+- Organizar un proyecto de bioinformática de forma clara y coherente.
+- Utilizar Git y GitHub para registrar, revisar e integrar cambios.
+- Facilitar la colaboración entre los integrantes del equipo.
+- Documentar los datos, los módulos y el flujo de trabajo previsto.
+- Desarrollar herramientas para validar, analizar y caracterizar secuencias de ADN.
+- Identificar secuencias homólogas y obtener información biológica mediante la comparación con bases de datos.
+- Analizar la conservación evolutiva y las relaciones filogenéticas entre secuencias.
+- Generar representaciones gráficas e informes que faciliten la interpretación de los resultados.
+  
+## Estructura del repositorio
 
-### Objetivos específicos
+| Ruta | Contenido |
+|---|---|
+| `src/` | Módulos previstos de Python y documentación del código. |
+| `R/` | Scripts previstos para resúmenes estadísticos, comparación y visualización. |
+| `data/` | Secuencias artificiales de ejemplo, metadatos y documentación de entrada. |
+| `docs/` | Documentación técnica y metodológica del proyecto. |
+| `results/` | Documentación de las salidas previstas y ubicación futura de los resultados. |
+| `test/` | Documentación de las pruebas previstas. |
+| `README.md` | Presentación general del proyecto. |
+| `CHANGELOG.md` | Historial de versiones y cambios del proyecto. |
+| `requirements.txt` | Archivo reservado para las dependencias de Python. |
+| `.gitignore` | Reglas para excluir archivos temporales y otros archivos innecesarios del control de versiones. |
+| `LICENSE` | Licencia MIT. |
 
-- Validar secuencias de ADN introducidas por el usuario.
-- Calcular la longitud y composición nucleotídica.
-- Determinar el porcentaje de contenido GC.
-- Obtener secuencias complementarias y reverso-complementarias.
-- Identificar posibles marcos abiertos de lectura (ORF).
-- Traducir regiones codificantes a secuencias de aminoácidos.
-- Comparar secuencias con bases de datos mediante BLAST.
-- Recuperar información biológica y funcional asociada a los genes y proteínas identificados.
-- Investigar la conservación evolutiva y la variabilidad genética mediante el alineamiento múltiple de secuencias.
-- Reconstruir e interpretar árboles filogenéticos para explorar las relaciones evolutivas.
-- Realizar análisis estadísticos mediante R.
-- Generar gráficos e informes de resultados.
-- Aplicar Git y GitHub para el control de versiones y el trabajo colaborativo.
+## Módulos previstos de Python
 
----
+| Archivo | Función prevista |
+|---|---|
+| `src/main.py` | Coordinar el flujo del programa y los análisis seleccionados. |
+| `src/sequence_validation.py` | Validar el formato FASTA y el contenido de las secuencias. |
+| `src/sequence_analysis.py` | Calcular longitud, composición nucleotídica y contenido GC. |
+| `src/sequence_complement.py` | Obtener secuencias complementarias y reverso-complementarias. |
+| `src/orf_detection.py` | Identificar posibles marcos abiertos de lectura (ORF). |
+| `src/sequence_translation.py` | Traducir las regiones seleccionadas a secuencias de aminoácidos. |
+| `src/blast_analysis.py` | Realizar búsquedas de similitud mediante BLAST. |
+| `src/multiple_sequence_alignment.py` | Realizar alineamientos múltiples de secuencias homólogas. |
+| `src/conservation_analysis.py` | Analizar la conservación y variabilidad de las posiciones del alineamiento. |
+| `src/phylogenetic_analysis.py` | Calcular distancias genéticas y reconstruir árboles filogenéticos. |
+| `src/report_generator.py` | Organizar y exportar resultados e incidencias de los análisis. |
 
-## 🔬 Funcionalidades previstas
+Consulta la [documentación de los módulos de Python](src/README.md).
 
-| Funcionalidad | Descripción | Lenguaje |
-|---|---|---|
-| Validación de secuencias | Comprobación de nucleótidos válidos y formatos de entrada. | Python |
-| Análisis nucleotídico | Cálculo de longitud y frecuencia de A, T, C y G. | Python |
-| Contenido GC | Cálculo del porcentaje de guaninas y citosinas. | Python |
-| Secuencias complementarias | Obtención de la complementaria y reverso-complementaria. | Python |
-| Detección de ORF | Identificación de posibles marcos abiertos de lectura. | Python |
-| Traducción a proteínas | Conversión de regiones codificantes a aminoácidos. | Python |
-| Comparación con BLAST | Búsqueda de similitudes con secuencias biológicas conocidas. | Python |
-| Identificación de secuencias homólogas |  Identificación de secuencias relacionadas y recuperación de información sobre los organismos de origen. | Python |
-| Anotación funcional | Obtención de información sobre genes, proteínas, dominios y funciones biológicas asociadas. | Python |
-| Alineamiento múltiple de secuencias (MSA) | Alineamiento de secuencias homólogas para identificar posiciones conservadas y variables. | Python |
-| Análisis de conservación evolutiva | Evaluación de la conservación y variabilidad nucleotídica a lo largo de las secuencias alineadas. | Python y R  
-| Reconstrucción de árboles filogenéticos | Construcción de árboles filogenéticos mediante métodos basados en distancias evolutivas o máxima verosimilitud. | Python
-| Análisis de distancias genéticas | Cálculo y comparación de distancias evolutivas entre secuencias. | Python y R
-| Evaluación del soporte filogenético | Estimación de la robustez de las ramas de los árboles mediante análisis bootstrap. | Python
-| Interpretación filogenética | Identificación de grupos de secuencias relacionadas y estudio de sus relaciones evolutivas. | R
-| Análisis estadístico | Estudio de la distribución y variabilidad de los resultados. | R |
-| Comparación de secuencias | Comparación estadística de características entre secuencias. | R |
-| Visualización | Elaboración de histogramas, diagramas de cajas y otros gráficos, así como visualización de patrones de conservación y árboles filogenéticos. | R |
-| Generación de informes | Organización y presentación de los resultados obtenidos. | Python y R |
+## Scripts previstos de R
 
----
+| Archivo | Función prevista |
+|---|---|
+| `R/gc_statistics.R` | Elaborar resúmenes estadísticos del contenido GC. |
+| `R/sequence_comparison.R` | Comparar características entre secuencias y, cuando existan metadatos apropiados, entre grupos o especies. |
+| `R/sequence_quality.R` | Resumir indicadores de calidad básica, como bases ambiguas, registros vacíos o posibles duplicados. |
+| `R/conservation_analysis.R` | Analizar y representar gráficamente los niveles de conservación evolutiva. |
+| `R/phylogenetic_tree.R` | Representar y analizar árboles filogenéticos. |
+| `R/visualization.R` | Generar gráficos de las características analizadas. |
+| `R/report_analysis.R` | Elaborar informes estadísticos a partir de los resultados de Python. |
 
-## 📂 Estructura del repositorio
+El control de calidad previsto no incluye puntuaciones Phred, ya que los archivos FASTA no contienen puntuaciones de calidad de lectura.
 
-```text
-analisis-secuencias-adn/
-│
-├── data/                         # Datos de entrada
-│   ├── example.fasta             # Secuencia de ADN de ejemplo
-│   ├── reference.fasta           # Secuencias de referencia
-│   └── metadata.csv              # Metadatos de las secuencias
-│
-├── src/                          # Código fuente Python
-│   ├── main.py
-│   ├── sequence_validation.py
-│   ├── sequence_analysis.py
-│   ├── sequence_complement.py
-│   ├── orf_detection.py
-│   ├── sequence_translation.py
-│   ├── blast_analysis.py
-│   ├── report_generator.py
-│   ├── multiple_sequence_alignment.py  
-│   ├── conservation_analysis.py        
-│   └── phylogenetic_analysis.py        
-│
-├── R/                            # Scripts de análisis estadístico
-│   ├── gc_statistics.R
-│   ├── sequence_comparison.R
-│   ├── visualization.R
-│   ├── report_analysis.R
-│   ├── sequence_quality.R
-│   ├── conservation_analysis.R 
-│   └── phylogenetic_tree.R     
-│
-├── test/                        # Pruebas del programa
-│   ├── test_sequence_validation.py
-│   ├── test_sequence_analysis.py
-│   ├── test_multiple_sequence_alignment.py 
-│   ├── test_conservation_analysis.py       
-│   └── test_phylogenetic_analysis.py
-│
-├── results/                      # Resultados de los análisis
-│   ├── alignments/               # Alineamientos generados
-│   ├── phylogenetic_trees/       # Árboles filogenéticos
-│   └── reports/                  # Informes finales
-│
-├── docs/                         # Documentación técnica
-│   ├── methodology.md            # Metodología del análisis
-│   └── phylogenetics.md          # Metodología filogenética
-│
-├── .gitignore                    # Archivos excluidos de Git
-├── LICENSE                       # Licencia del proyecto
-├── README.md                     # Documentación principal
-├── CHANGELOG.md                  # Registro de cambios
-└── requirements.txt              # Dependencias de Python
+## Flujo de trabajo previsto
+
+1. Leer los registros de un archivo FASTA y conservar sus identificadores.
+2. Validar su formato y los caracteres de las secuencias.
+3. Calcular la longitud, la composición nucleotídica y el contenido GC.
+4. Ejecutar los análisis adicionales seleccionados: secuencias complementarias, detección de ORF, traducción o búsquedas mediante BLAST.
+5. Alinear las secuencias homólogas para identificar similitudes, diferencias y regiones conservadas.
+6. Evaluar la conservación evolutiva y reconstrucción de árboles filogenéticos para estudiar las relaciones evolutivas entre las secuencias.
+7. Procesamiento y resumen de los resultados mediante métodos estadísticos para identificar patrones y diferencias relevantes.
+8. Exportar tablas de resultados e incidencias.
+9. Generación de representaciones gráficas de los resultados mediante herramientas de R.
+10. Organización de los resultados en archivos y documentos para facilitar su interpretación. 
+
+Los registros excluidos de un análisis deberán conservarse en el informe de validación junto con el motivo de exclusión.
+
+Las políticas para caracteres ambiguos y los parámetros de los análisis adicionales se concretarán antes de su implementación.
+
+Consulta la [metodología prevista](docs/metodologia.md).
+
+## Análisis evolutivo y filogenético
+
+El proyecto contempla un bloque específico para estudiar la conservación y las relaciones evolutivas entre secuencias homólogas.
+
+Este análisis incluirá cuatro procedimientos principales:
+
+1. **Alineamiento múltiple de secuencias (MSA):** comparación y alineamiento de secuencias homólogas mediante herramientas como MAFFT o MUSCLE.
+2. **Análisis de conservación evolutiva:** identificación de posiciones conservadas y variables, así como cálculo de frecuencias nucleotídicas.
+3. **Reconstrucción de árboles filogenéticos:** estudio de las relaciones evolutivas mediante métodos basados en distancias genéticas o máxima verosimilitud.
+4. **Interpretación filogenética:** identificación de agrupaciones, clados, distancias genéticas y evaluación del soporte de las ramas mediante métodos como Bootstrap.
+
+Entre las herramientas previstas se encuentran BLAST, MAFFT, MUSCLE, IQ-TREE, FastTree y los paquetes de R ape y ggtree.
+
+Consulta la [documentación específica de análisis filogenético](docs/phylogenetics.md).
+
+## Datos de ejemplo
+
+La carpeta `data/` contiene:
+
+- [`example.fasta`](data/example.fasta): dos secuencias artificiales de ADN.
+- [`metadata.csv`](data/metadata.csv): información descriptiva asociada a sus identificadores.
+
+Estas secuencias tienen una finalidad educativa. No representan organismos reales ni proceden de una base de datos biológica.
+
+La estructura prevista también contempla:
+
+- [`data/input/`](data/example.fasta): secuencias introducidas por el usuario.
+- [`data/reference/`](data/reference.fasta): secuencias de referencia obtenidas de bases de datos biológicas.
+
+Consulta la [documentación de los datos](data/README.md).
+
+## Resultados previstos
+
+Las salidas previstas incluyen:
+
+- Tablas de longitud, composición nucleotídica y contenido GC.
+- Informes de validación.
+- Secuencias complementarias y reverso-complementarias.
+- Posibles ORF y traducciones de las regiones seleccionadas.
+- Resultados de búsquedas de similitud.
+- Alineamientos múltiples de secuencias.
+- Resultados del análisis de conservación evolutiva.
+- Árboles filogenéticos reconstruidos.
+- Gráficos y representaciones estadísticas generados con R.
+- Informes finales con los resultados integrados.
+
+Se almacenarán en `results/` y conservarán los identificadores de las secuencias de entrada.
+
+Actualmente no se han generado resultados. Consulta la [documentación de las salidas previstas](results/README.md).
+
+## Cómo obtener el proyecto
+
+### Clonar con Git
+
+Es necesario disponer de Git para utilizar esta opción.
+
+```bash
+git clone https://github.com/Christian-Salmeron/analisis-secuencias-adn.git
+cd analisis-secuencias-adn
 ```
 
-**Nota:** esta estructura representa la organización prevista del proyecto. Algunos archivos de datos y componentes pueden estar pendientes de incorporación.
+### Descargar como ZIP
 
----
+1. Abrir el repositorio en GitHub.
+2. Seleccionar **Code → Download ZIP**.
+3. Descomprimir el archivo.
 
-## 🚀 Instalación y ejecución
+La descarga ZIP contiene los archivos del proyecto, pero no conserva el historial de Git.
 
-### Requisitos previos
+## Uso actual y dependencias
 
-Para utilizar el proyecto, será necesario disponer de las siguientes herramientas:
+Actualmente se puede consultar la documentación, explorar los datos de ejemplo y revisar la planificación de los módulos.
 
-- **Python 3:** para ejecutar los módulos de análisis desarrollados en Python.
-- **R:** para ejecutar los scripts de análisis estadístico y control de calidad.
-- **Git:** para clonar el repositorio y gestionar las versiones del proyecto.
+Los archivos Python y R contienen descripciones de funcionalidades previstas. Ejecutarlos no realiza los análisis descritos.
 
-### Instalación
+`requirements.txt` está reservado para las futuras dependencias de Python; actualmente no declara paquetes. Las dependencias y sus versiones, junto con las instrucciones de instalación y ejecución, se añadirán durante la implementación.
 
-1. Clonar el repositorio de GitHub:
+## Pruebas previstas
 
-   ```bash
-   git clone https://github.com/Christian-Salmeron/analisis-secuencias-adn.git
-   ```
+La carpeta `test/` contiene el plan inicial de pruebas. Se prevé utilizar `pytest` para comprobar aspectos como:
 
-2. Acceder al directorio del proyecto:
+- Lectura y validación de registros FASTA.
+- Detección de caracteres no permitidos.
+- Cálculo de longitud, composición nucleotídica y contenido GC.
+- Obtención de secuencias complementarias y reverso-complementarias.
+- Detección de ORF y traducción.
+- Generación de alineamientos múltiples.
+- Identificación de posiciones conservadas y variables.
+- Cálculo de distancias genéticas y reconstrucción de árboles filogenéticos.
+- Generación de informes.
 
-   ```bash
-   cd analisis-secuencias-adn
-   ```
+Las pruebas automatizadas todavía no están implementadas ni ejecutadas.
 
-3. Instalar las dependencias necesarias para ejecutar los módulos y scripts, una vez estén definidas en el proyecto.
+Consulta el [plan de pruebas](test/README.md).
 
-### Ejecución
+## Colaboración y control de versiones
 
-El proyecto se encuentra actualmente en fase de desarrollo. Las instrucciones específicas para ejecutar cada módulo y funcionalidad se incorporarán a medida que se complete su implementación.
+El historial del repositorio recoge las contribuciones del equipo y la integración de cambios mediante pull requests.
 
-Los módulos de Python se encuentran en la carpeta `src/`, mientras que los scripts de R están organizados en la carpeta `R/`.
+Para nuevas contribuciones, se propone:
 
----
+1. Crear una rama para el cambio.
+2. Modificar los archivos correspondientes.
+3. Registrar los cambios con un mensaje de commit que explique la acción realizada.
+4. Publicar la rama y abrir una pull request.
+5. Revisar e integrar los cambios en `main`.
 
-## 🐍 Módulos Python
+Los títulos y las descripciones de los commits deben reflejar el trabajo realizado y distinguir la documentación de la implementación de funcionalidades.
 
-Los archivos de la carpeta `src/` están destinados a implementar las funcionalidades principales de la aplicación.
+## Próximos pasos
 
-| Archivo | Función prevista |
-|---|---|
-| `main.py` | Punto de entrada del programa y coordinación de los análisis. |
-| `sequence_validation.py` | Validación de las secuencias según criterios de formato y contenido. |
-| `sequence_analysis.py` | Cálculo de longitud, composición nucleotídica y contenido GC. |
-| `sequence_complement.py` | Obtención de secuencias complementarias y reverso-complementarias. |
-| `orf_detection.py` | Identificación de posibles marcos abiertos de lectura. |
-| `sequence_translation.py` | Traducción de regiones codificantes a aminoácidos. |
-| `blast_analysis.py` | Comparación de secuencias mediante BLAST. |
-| `report_generator.py` | Generación de informes con los resultados bioinformáticos. |
+- Concretar las políticas de validación y los formatos de intercambio.
+- Implementar los módulos de Python.
+- Desarrollar los scripts de R.
+- Incorporar los procedimientos de alineamiento múltiple y análisis de conservación.
+- Implementar la reconstrucción e interpretación de árboles filogenéticos.
+- Definir y documentar las dependencias.
+- Incorporar y ejecutar pruebas automatizadas.
+- Añadir ejemplos reproducibles de ejecución.
+- Documentar los resultados y mantener actualizada la información del proyecto.
 
-Esta organización modular facilitará el desarrollo independiente de las funcionalidades y su posterior integración.
+## Documentación
 
----
+- [Módulos de Python](src/README.md)
+- [Datos de entrada](data/README.md)
+- [Metodología prevista](docs/metodologia.md)
+- [Análisis evolutivo y filogenético](docs/phylogenetics.md)
+- [Resultados previstos](results/README.md)
+- [Plan de pruebas](test/README.md)
+- [Historial de cambios](CHANGELOG.md)
 
-## 📊 Scripts R
+## Equipo
 
-Los scripts de la carpeta `R/` estarán orientados al procesamiento estadístico y a la visualización de los resultados procedentes de los análisis bioinformáticos.
+- Nicole María Arias Espinoza.
+- Inmaculada Martínez Olmo.
+- Marta Ruiz Alcázar.
+- Christian Salmerón Conde.
 
-| Archivo | Función prevista |
-|---|---|
-| `gc_statistics.R` | Análisis estadístico del contenido GC de diferentes secuencias. |
-| `sequence_comparison.R` | Comparación de características de secuencias entre organismos o grupos. |
-| `visualization.R` | Generación de gráficos e histogramas para representar los resultados. |
-| `report_analysis.R` | Elaboración de informes estadísticos. |
-| `sequence_quality.R` | Evaluación y resumen de parámetros de calidad de las secuencias. |
+Las contribuciones pueden consultarse en el historial de commits y en las pull requests del repositorio.
 
-Se prevé utilizar archivos CSV como formato de intercambio de resultados entre Python y R.
+## Licencia
 
----
-
-## 🧪 Pruebas y validación
-
-La carpeta `tests/` estará destinada a verificar el correcto funcionamiento de los módulos del programa.
-
-Se contempla desarrollar pruebas automatizadas utilizando **pytest**.
-
-### Pruebas previstas
-
-- Validación de secuencias correctas e incorrectas.
-- Comprobación de la longitud y el recuento de nucleótidos.
-- Verificación del cálculo del contenido GC.
-- Comprobación de secuencias complementarias y reverso-complementarias.
-- Evaluación de la detección de ORF.
-- Verificación de la traducción a aminoácidos.
-- Comprobación de los formatos de salida e informes.
-
-Las pruebas se implementarán una vez desarrolladas las funcionalidades correspondientes.
-
-La planificación detallada se encuentra en `test/README.md`.
-
----
-
-## 🔄 Flujo de trabajo previsto
-
-El funcionamiento de la aplicación se organizará en once etapas:
-
-1. **Entrada de datos:** el usuario proporcionará una o varias secuencias de ADN, directamente o mediante archivos FASTA.
-2. **Validación:** Python comprobará el formato y los nucleótidos de las secuencias.
-3. **Análisis básico:** se calcularán longitud, composición nucleotídica y contenido GC.
-4. **Procesamiento molecular:** se obtendrán las secuencias complementarias y se identificarán posibles ORF.
-5. **Traducción:** las regiones codificantes seleccionadas podrán traducirse a aminoácidos.
-6. **Identificación y comparación:** se realizarán búsquedas de similitud mediante BLAST para identificar secuencias homólogas y obtener información biológica asociada.
-7. **Alineamiento múltiple:** se alinearán las secuencias homólogas para identificar similitudes, diferencias y regiones conservadas.
-8. **Análisis evolutivo y filogenético:** se evaluará la conservación evolutiva y se reconstruirán árboles filogenéticos para estudiar las relaciones evolutivas entre las secuencias.
-9. **Análisis estadístico:** se procesarán y resumirán los resultados mediante métodos estadísticos para identificar patrones y diferencias relevantes.
-10. **Visualización:** se generarán representaciones gráficas de los resultados mediante herramientas de R.
-11. **Generación de informes:** los resultados se organizarán en archivos y documentos para facilitar su interpretación.
-
----
-
-## 🛠️ Tecnologías y herramientas previstas
-
-### Lenguajes
-
-- **Python 3:** procesamiento y análisis bioinformático.
-- **R:** análisis estadístico y visualización.
-
-### Bibliotecas y herramientas
-
-| Herramienta | Aplicación prevista |
-|---|---|
-| Biopython | Lectura, manipulación y análisis de secuencias. |
-| NCBI BLAST | Comparación de secuencias con bases de datos biológicas. |
-| Biostrings | Manipulación de secuencias biológicas en R. |
-| ggplot2 | Visualización estadística de resultados. |
-| pytest | Pruebas automatizadas de Python. |
-| Git | Control de versiones. |
-| GitHub | Alojamiento y colaboración. |
-
-### Gestión de dependencias
-
-El archivo `requirements.txt` está destinado a recoger las dependencias necesarias para el entorno Python.
-
-Las bibliotecas utilizadas en R se gestionarán por separado.
-
-Las versiones definitivas se establecerán cuando se implementen y validen los módulos.
-
----
-
-## 📁 Gestión de datos y resultados
-
-### Carpeta `data/`
-
-Almacenará las secuencias de ADN y sus metadatos.
-
-Los formatos previstos incluyen:
-
-- **FASTA (.fasta):** almacenamiento de secuencias biológicas.
-- **CSV (.csv):** almacenamiento de metadatos asociados.
-
-### Carpeta `results/`
-
-Almacenará los resultados generados durante los diferentes análisis del proyecto, organizados según su tipo.
-
-Los archivos previstos incluyen:
-
-- Tablas CSV con características y composición de las secuencias.
-- Resultados de identificación de marcos abiertos de lectura (ORF).
-- Resultados de búsquedas de similitud mediante BLAST.
-- Gráficos y representaciones estadísticas generados con R.
-- Alineamientos múltiples de secuencias (MSA), almacenados en alignments/.
-- Árboles filogenéticos reconstruidos, almacenados en phylogenetic_trees/.
-- Informes finales con los resultados integrados, almacenados en reports/.
-
-### Carpeta `docs/`
-
-Contendrá documentación técnica y metodológica complementaria, incluyendo descripciones de algoritmos, diagramas del flujo de trabajo, procedimientos de análisis de secuencias y documentación específica del análisis evolutivo y filogenético, como alineamiento múltiple, conservación evolutiva y reconstrucción e interpretación de árboles filogenéticos.
-
----
-
-## 📝 Historial de cambios
-
-El archivo `CHANGELOG.md` está destinado a registrar las modificaciones y mejoras más relevantes del proyecto.
-
-Permitirá documentar:
-
-- Incorporación de nuevos módulos.
-- Modificaciones de la estructura.
-- Ampliación de funcionalidades.
-- Actualizaciones de documentación.
-- Correcciones y mejoras futuras.
-
-Este registro complementará el historial de commits proporcionado por Git.
-
----
-
-## 🤝 Control de versiones y colaboración
-
-El proyecto utiliza **Git y GitHub** para facilitar el trabajo colaborativo entre los cuatro integrantes del equipo.
-
-### Procedimiento de colaboración
-
-1. **Repositorio principal:** centraliza la estructura y documentación del proyecto.
-2. **Fork:** cada integrante puede crear una copia del repositorio en su cuenta.
-3. **Commits:** los cambios se registran mediante confirmaciones con mensajes descriptivos.
-4. **Pull Requests:** las modificaciones se proponen para su revisión e incorporación.
-5. **Code Review:** los integrantes pueden revisar y comentar las contribuciones.
-6. **Merge:** los cambios aprobados se integran en la rama principal.
-7. **Sincronización:** los forks pueden actualizarse para incorporar cambios del repositorio original.
-
-Este procedimiento permitirá conservar un historial de las modificaciones y facilitará la coordinación entre los integrantes del grupo.
-
----
-
-## 🚧 Estado actual del proyecto
-
-**Fase de planificación y organización del repositorio.**
-
-Actualmente se ha planteado la arquitectura del proyecto y se han creado archivos correspondientes a los módulos Python y scripts R previstos.
-
-También se ha preparado la estructura destinada al almacenamiento de datos, documentación, resultados y pruebas.
-
-**Las funcionalidades del programa todavía no están implementadas ni validadas.** El repositorio constituye una propuesta inicial para un futuro desarrollo bioinformático.
-
----
-
-## 🎓 Contexto académico
-
-Este proyecto se desarrolla como parte de la actividad grupal **«GitHub: Crear un repositorio GitHub. Control de versiones»**, correspondiente a la asignatura **Introducción a la Programación Científica**, del Máster Universitario en Bioinformática de la **Universidad Internacional de La Rioja (UNIR)**.
-
-La finalidad principal de esta actividad es adquirir experiencia práctica en:
-
-- Creación y configuración de repositorios GitHub.
-- Organización de proyectos de programación científica.
-- Gestión de archivos y directorios.
-- Registro y seguimiento de cambios.
-- Trabajo colaborativo mediante forks y pull requests.
-- Elaboración de documentación técnica.
-
----
-
-## 📄 Licencia
-
-Este proyecto se distribuye bajo la **licencia MIT**, cuyas condiciones pueden consultarse en el archivo `LICENSE`.
+Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para conocer sus condiciones.
