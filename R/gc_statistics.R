@@ -1,1 +1,1 @@
-Analizar estadísticamente el contenido GC de múltiples secuencias.
+# Analizar estadísticamente el contenido GC de múltiples secuencias.
