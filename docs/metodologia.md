@@ -6,9 +6,15 @@ Este documento describe el flujo metodológico propuesto para analizar secuencia
 
 ## Datos de entrada
 
-El archivo FASTA contiene una o más secuencias. Cada registro comienza con una línea de encabezado que inicia con `>` y continúa con la secuencia de nucleótidos.
+Los datos se organizarán en la carpeta `data/`, diferenciando tres tipos de recursos:
 
-El archivo `data/example.fasta` contiene secuencias artificiales para probar el formato. No representan organismos ni proceden de una base de datos biológica. El archivo `data/metadata.csv` relaciona cada identificador FASTA con información descriptiva.
+- **`data/example.fasta`:** contiene secuencias artificiales utilizadas para ilustrar el formato FASTA y planificar las pruebas del programa.
+- **`data/inputs/`:** almacenará las secuencias proporcionadas por el usuario que se someterán a análisis.
+- **`data/references/`:** contendrá secuencias de referencia procedentes de bases de datos biológicas públicas u otros recursos documentados.
+
+El archivo `data/metadata.csv` contiene información descriptiva asociada a las secuencias de ejemplo. Para los nuevos conjuntos de datos se documentarán, cuando corresponda, los identificadores, el organismo de procedencia, los números de acceso y la fuente de obtención.
+
+Cada registro FASTA comienza con una línea de encabezado que inicia con >, seguida de la secuencia de nucleótidos. Se utilizará el identificador situado antes del primer espacio de la cabecera para relacionar cada secuencia con sus metadatos y resultados.
 
 ## Flujo de análisis previsto
 
@@ -17,7 +23,10 @@ El archivo `data/example.fasta` contiene secuencias artificiales para probar el 
 3. **Análisis básico:** calcular la longitud, la frecuencia de A, T, C y G, y el contenido GC por secuencia.
 4. **Procesamiento adicional:** calcular la secuencia complementaria y reverso-complementaria; identificar posibles marcos abiertos de lectura y traducir las regiones seleccionadas.
 5. **Comparación:** realizar búsquedas de similitud mediante BLAST cuando se definan la herramienta, la base de datos y sus parámetros.
-6. **Resumen y visualización:** organizar los resultados en tablas que puedan utilizarse en Python y R, y generar gráficos estadísticos cuando corresponda.
+6. **Análisis de conservación evolutiva:** evaluar el grado de conservación de las posiciones nucleotídicas a partir de los alineamientos múltiples.
+7. **Reconstrucción e interpretación filogenética:** estimar las relaciones evolutivas entre las secuencias mediante la reconstrucción de árboles filogenéticos.
+8. **Análisis estadístico y visualización:** organizar los resultados en tablas y representaciones gráficas mediante Python y R.
+9. **Generación de informes:** integración de los resultados obtenidos en informes que permitan consultar y comparar los análisis realizados.
 
 ## Cálculo del contenido GC
 
