@@ -98,8 +98,8 @@ analisis-secuencias-adn/
 ├── test/                        # Pruebas del programa
 │   ├── test_sequence_validation.py
 │   ├── test_sequence_analysis.py
-│   ├── test_multiple_sequence_alignment.py # NUEVO
-│   ├── test_conservation_analysis.py       # NUEVO
+│   ├── test_multiple_sequence_alignment.py 
+│   ├── test_conservation_analysis.py       
 │   └── test_phylogenetic_analysis.py
 │
 ├── results/                      # Resultados de los análisis
@@ -209,22 +209,25 @@ Se contempla desarrollar pruebas automatizadas utilizando **pytest**.
 
 Las pruebas se implementarán una vez desarrolladas las funcionalidades correspondientes.
 
-La planificación detallada se encuentra en `tests/README.md`.
+La planificación detallada se encuentra en `test/README.md`.
 
 ---
 
 ## 🔄 Flujo de trabajo previsto
 
-El funcionamiento de la aplicación se organizará en ocho etapas:
+El funcionamiento de la aplicación se organizará en once etapas:
 
 1. **Entrada de datos:** el usuario proporcionará una o varias secuencias de ADN, directamente o mediante archivos FASTA.
 2. **Validación:** Python comprobará el formato y los nucleótidos de las secuencias.
 3. **Análisis básico:** se calcularán longitud, composición nucleotídica y contenido GC.
 4. **Procesamiento molecular:** se obtendrán las secuencias complementarias y se identificarán posibles ORF.
 5. **Traducción:** las regiones codificantes seleccionadas podrán traducirse a aminoácidos.
-6. **Comparación:** se realizarán búsquedas de similitud mediante BLAST.
-7. **Análisis estadístico:** R procesará los resultados y generará representaciones gráficas.
-8. **Generación de informes:** los resultados se organizarán en archivos y documentos para facilitar su interpretación.
+6. **Identificación y comparación:** se realizarán búsquedas de similitud mediante BLAST para identificar secuencias homólogas y obtener información biológica asociada.
+7. **Alineamiento múltiple:** se alinearán las secuencias homólogas para identificar similitudes, diferencias y regiones conservadas.
+8. **Análisis evolutivo y filogenético:** se evaluará la conservación evolutiva y se reconstruirán árboles filogenéticos para estudiar las relaciones evolutivas entre las secuencias.
+9. **Análisis estadístico:** se procesarán y resumirán los resultados mediante métodos estadísticos para identificar patrones y diferencias relevantes.
+10. **Visualización:** se generarán representaciones gráficas de los resultados mediante herramientas de R.
+11. **Generación de informes:** los resultados se organizarán en archivos y documentos para facilitar su interpretación.
 
 ---
 
@@ -270,19 +273,21 @@ Los formatos previstos incluyen:
 
 ### Carpeta `results/`
 
-Almacenará los resultados generados durante los análisis.
+Almacenará los resultados generados durante los diferentes análisis del proyecto, organizados según su tipo.
 
 Los archivos previstos incluyen:
 
-- Tablas CSV con características de las secuencias.
-- Resultados de identificación de ORF.
-- Resultados de comparaciones mediante BLAST.
-- Gráficos generados con R.
-- Informes finales.
+- Tablas CSV con características y composición de las secuencias.
+- Resultados de identificación de marcos abiertos de lectura (ORF).
+- Resultados de búsquedas de similitud mediante BLAST.
+- Gráficos y representaciones estadísticas generados con R.
+- Alineamientos múltiples de secuencias (MSA), almacenados en alignments/.
+- Árboles filogenéticos reconstruidos, almacenados en phylogenetic_trees/.
+- Informes finales con los resultados integrados, almacenados en reports/.
 
 ### Carpeta `docs/`
 
-Contendrá documentación técnica y metodológica complementaria, como descripciones de algoritmos, diagramas del flujo de trabajo y procedimientos de análisis.
+Contendrá documentación técnica y metodológica complementaria, incluyendo descripciones de algoritmos, diagramas del flujo de trabajo, procedimientos de análisis de secuencias y documentación específica del análisis evolutivo y filogenético, como alineamiento múltiple, conservación evolutiva y reconstrucción e interpretación de árboles filogenéticos.
 
 ---
 
