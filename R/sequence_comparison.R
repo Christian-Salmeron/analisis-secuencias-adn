@@ -1,1 +1,1 @@
-Comparar características de secuencias de distintas especies.
+# Comparar características de secuencias de distintas especies.
