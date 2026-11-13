@@ -1,1 +1,1 @@
-Representar gráficamente la conservación de nucleótidos y las regiones variables.
+# Representación gráfica de la conservación de nucleótidos y las regiones variables.
