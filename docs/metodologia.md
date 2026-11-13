@@ -1,43 +1,90 @@
-# Metodología del análisis de secuencias de ADN
+# Metodología prevista
 
-## Propósito
+## Estado actual
 
-Este documento describe el flujo metodológico propuesto para analizar secuencias de ADN en formato FASTA. Las funciones se incorporarán y validarán durante el desarrollo del proyecto.
+Este documento describe el flujo propuesto para analizar secuencias de ADN. Los módulos todavía no están implementados y no se han generado resultados.
 
 ## Datos de entrada
 
-Los datos se organizarán en la carpeta `data/`, diferenciando tres tipos de recursos:
+Los datos se organizarán de la siguiente forma:
 
-- **`data/example.fasta`:** contiene secuencias artificiales utilizadas para ilustrar el formato FASTA y planificar las pruebas del programa.
-- **`data/inputs/`:** almacenará las secuencias proporcionadas por el usuario que se someterán a análisis.
-- **`data/references/`:** contendrá secuencias de referencia procedentes de bases de datos biológicas públicas u otros recursos documentados.
+| Ruta | Contenido |
+|---|---|
+| `data/example.fasta` | Dos secuencias artificiales de ejemplo. |
+| `data/metadata.csv` | Metadatos asociados a las secuencias de ejemplo. |
+| `data/inputs/` | Secuencias proporcionadas por el usuario. |
+| `data/references/` | Secuencias de referencia y documentación de su procedencia. |
 
-El archivo `data/metadata.csv` contiene información descriptiva asociada a las secuencias de ejemplo. Para los nuevos conjuntos de datos se documentarán, cuando corresponda, los identificadores, el organismo de procedencia, los números de acceso y la fuente de obtención.
+Las secuencias artificiales servirán para ilustrar el formato de entrada y preparar pruebas. No permitirán extraer conclusiones sobre organismos reales.
 
-Cada registro FASTA comienza con una línea de encabezado que inicia con >, seguida de la secuencia de nucleótidos. Se utilizará el identificador situado antes del primer espacio de la cabecera para relacionar cada secuencia con sus metadatos y resultados.
+Cada registro FASTA tendrá una cabecera que comience con `>`, seguida de su secuencia. Se utilizará como identificador el texto anterior al primer espacio de la cabecera.
 
 ## Flujo de análisis previsto
 
-1. **Lectura:** cargar cada registro FASTA y conservar su identificador.
-2. **Validación:** comprobar que el archivo tenga encabezados y secuencias no vacías. La política para caracteres ambiguos se definirá antes de implementar el análisis.
-3. **Análisis básico:** calcular la longitud, la frecuencia de A, T, C y G, y el contenido GC por secuencia.
-4. **Procesamiento adicional:** calcular la secuencia complementaria y reverso-complementaria; identificar posibles marcos abiertos de lectura y traducir las regiones seleccionadas.
-5. **Comparación:** realizar búsquedas de similitud mediante BLAST cuando se definan la herramienta, la base de datos y sus parámetros.
-6. **Análisis de conservación evolutiva:** evaluar el grado de conservación de las posiciones nucleotídicas a partir de los alineamientos múltiples.
-7. **Reconstrucción e interpretación filogenética:** estimar las relaciones evolutivas entre las secuencias mediante la reconstrucción de árboles filogenéticos.
-8. **Análisis estadístico y visualización:** organizar los resultados en tablas y representaciones gráficas mediante Python y R.
-9. **Generación de informes:** integración de los resultados obtenidos en informes que permitan consultar y comparar los análisis realizados.
+1. **Lectura:** cargar los registros FASTA y conservar sus identificadores.
+2. **Validación:** comprobar cabeceras, secuencias vacías, identificadores repetidos y caracteres permitidos.
+3. **Análisis básico:** calcular longitud, recuentos de nucleótidos y contenido GC.
+4. **Procesamiento adicional:** obtener secuencias complementarias y reverso-complementarias, detectar ORF y traducir las regiones seleccionadas.
+5. **Búsqueda de similitud:** comparar las secuencias mediante BLAST frente a una base de datos de referencia.
+6. **Selección de secuencias:** seleccionar secuencias homólogas y documentar sus identificadores y procedencia.
+7. **Alineamiento múltiple:** alinear las secuencias seleccionadas mediante herramientas como MAFFT o MUSCLE.
+8. **Conservación:** identificar posiciones conservadas y variables a partir del alineamiento.
+9. **Filogenia:** calcular distancias y reconstruir árboles a partir de alineamientos adecuados.
+10. **Análisis estadístico y visualización:** elaborar resúmenes, comparaciones y gráficos mediante Python y R.
+11. **Generación de informes:** integrar resultados, parámetros e incidencias.
 
-## Cálculo del contenido GC
+Los análisis adicionales dependerán de las opciones seleccionadas y de que los datos sean adecuados para cada procedimiento.
+
+## Validación y contenido GC
+
+Antes de implementar los módulos se definirán las políticas para caracteres ambiguos, registros inválidos e identificadores repetidos.
 
 El contenido GC se calculará como:
 
-`GC (%) = (número de G + número de C) / longitud analizada × 100`
+`GC (%) = (número de G + número de C) / número de posiciones consideradas × 100`
 
-El tratamiento de caracteres ambiguos deberá quedar documentado cuando se implemente la función para evitar resultados inconsistentes.
+Se documentará qué posiciones forman parte del denominador y cómo se tratan las bases ambiguas. Las secuencias vacías no se utilizarán para este cálculo.
 
-## Reproducibilidad y alcance
+Los registros excluidos se conservarán en el informe de validación junto con el motivo de exclusión.
 
-Cada resultado deberá conservar el identificador de la secuencia analizada. Cuando se incorporen herramientas externas, también se documentarán sus versiones, parámetros y bases de datos utilizadas.
+## Intercambio entre Python y R
 
-La estructura descrita representa el flujo previsto del proyecto; no implica que todas las funciones estén implementadas actualmente.
+| Formato previsto | Contenido |
+|---|---|
+| CSV | Características de las secuencias, indicadores de validación y resúmenes. |
+| FASTA o CLUSTAL | Alineamientos múltiples. |
+| Newick | Árboles filogenéticos. |
+
+Python realizará el procesamiento y exportará los archivos necesarios. R los utilizará para elaborar resúmenes estadísticos y representaciones gráficas.
+
+## Salidas previstas
+
+Los resultados se almacenarán en `results/`:
+
+- `alignments/`: alineamientos múltiples.
+- `phylogenetic_trees/`: árboles y sus representaciones.
+- `reports/`: informes y resultados integrados.
+- La raíz de `results/`: tablas y otros archivos, según su finalidad.
+
+Los datos originales de `data/` no se modificarán durante el procesamiento.
+
+## Reproducibilidad
+
+Cuando se implemente el proyecto, cada análisis documentará:
+
+- Archivos de entrada e identificadores.
+- Versión del código o commit.
+- Herramientas y dependencias utilizadas.
+- Parámetros y opciones seleccionadas.
+- Bases de datos y sus versiones o fechas de consulta.
+- Fecha de ejecución.
+- Incidencias y criterios de exclusión.
+
+## Documentación relacionada
+
+- [Presentación general](../README.md)
+- [Datos de entrada](../data/README.md)
+- [Módulos de Python](../src/README.md)
+- [Análisis filogenético previsto](phylogenetics.md)
+- [Resultados previstos](../results/README.md)
+- [Plan de pruebas](../test/README.md)
