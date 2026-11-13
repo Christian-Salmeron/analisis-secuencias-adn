@@ -1,72 +1,104 @@
-# Análisis Evolutivo y Filogenético
+# Análisis evolutivo y filogenético previsto
 
-## 1. Introducción
+## Estado actual y alcance
 
-Este documento describe la metodología utilizada para realizar análisis evolutivos y filogenéticos de secuencias de ADN, desde la identificación de secuencias homólogas hasta la reconstrucción e interpretación de árboles filogenéticos.
+Este documento describe los procedimientos previstos para estudiar la conservación y las relaciones evolutivas entre secuencias homólogas de ADN.
 
-## 2. Obtención de secuencias homólogas
+Los procedimientos todavía no están implementados ni se han ejecutado. Las herramientas mencionadas son alternativas que se concretarán durante el desarrollo.
 
-Las secuencias homólogas se identifican mediante la comparación de la secuencia de entrada con bases de datos biológicas públicas utilizando **BLAST**.
+Las secuencias artificiales de ejemplo no se utilizarán para extraer conclusiones evolutivas sobre organismos reales.
 
-Los principales criterios de selección son:
-- Porcentaje de identidad.
-- Cobertura de la secuencia.
-- Valor E-value.
-- Similitud entre secuencias.
+## Selección de secuencias
 
-## 3. Alineamiento múltiple de secuencias (MSA)
+Se prevé utilizar BLAST para buscar secuencias similares en bases de datos biológicas.
 
-Se realiza un alineamiento múltiple de las secuencias homólogas mediante herramientas como **MAFFT** o **MUSCLE**, con el objetivo de identificar:
+La selección de posibles secuencias homólogas considerará:
+
+- Identidad y cobertura del alineamiento.
+- E-value.
+- Longitud y región comparada.
+- Anotación y procedencia de cada secuencia.
+- Ausencia de duplicados innecesarios.
+
+Una coincidencia de BLAST servirá como evidencia para seleccionar candidatos; se comprobará que las secuencias correspondan a regiones comparables antes de reconstruir un árbol.
+
+Las referencias seleccionadas se almacenarán en `data/references/`, documentando sus accesiones, organismos y fuentes.
+
+## Alineamiento múltiple
+
+Se prevé generar alineamientos mediante MAFFT o MUSCLE.
+
+El alineamiento permitirá identificar:
+
 - Posiciones conservadas.
-- Regiones variables.
-- Inserciones y deleciones (gaps).
+- Sustituciones de nucleótidos.
+- Huecos compatibles con inserciones o deleciones.
+- Regiones de alineamiento incierto.
 
-## 4. Análisis de conservación evolutiva
+Antes del análisis filogenético se revisará la calidad del alineamiento. Cualquier exclusión de posiciones o secuencias deberá quedar documentada.
 
-Se evalúa el grado de conservación nucleotídica a partir del alineamiento, incluyendo:
-- Identificación de posiciones conservadas y variables.
-- Cálculo de frecuencias nucleotídicas.
-- Estimación de los niveles de conservación por posición.
+## Conservación
 
-## 5. Reconstrucción de árboles filogenéticos
+El módulo de conservación utilizará el alineamiento para calcular frecuencias nucleotídicas e identificar posiciones conservadas y variables.
 
-Se reconstruyen árboles filogenéticos para estudiar las relaciones evolutivas entre las secuencias mediante diferentes métodos:
-- **Neighbor-Joining (NJ):** basado en distancias genéticas.
-- **Máxima verosimilitud (ML):** basado en modelos de evolución molecular.
+Durante la implementación se definirán:
 
-Se pueden utilizar herramientas como **IQ-TREE** o **FastTree**.
+- La medida de conservación.
+- Los umbrales utilizados.
+- El tratamiento de huecos y bases ambiguas.
+- Los criterios para considerar una posición válida.
 
-## 6. Evaluación del soporte de las ramas
+## Reconstrucción filogenética
 
-La fiabilidad de las agrupaciones del árbol se evalúa mediante métodos de soporte como el **Bootstrap**, que permite estimar la estabilidad de las relaciones filogenéticas mediante remuestreo de las posiciones del alineamiento.
+Se contemplan dos alternativas:
 
-## 7. Interpretación filogenética
-
-Se analizan los árboles obtenidos para identificar:
-- Secuencias evolutivamente relacionadas.
-- Agrupaciones y clados.
-- Distancias genéticas.
-- Patrones de divergencia evolutiva.
-- Valores de soporte de las ramas.
-
-## 8. Visualización y presentación de resultados
-
-Los resultados se representan mediante herramientas como **ape**, **ggtree** y **ggplot2** en R.
-
-El informe final incluirá:
-- Secuencias analizadas y bases de datos utilizadas.
-- Alineamiento múltiple.
-- Resultados del análisis de conservación.
-- Árbol filogenético reconstruido.
-- Métodos y parámetros empleados.
-- Interpretación de los principales resultados.
-
-## 9. Herramientas principales
-
-| Herramienta | Aplicación |
+| Método | Procedimiento previsto |
 |---|---|
-| BLAST | Identificación de secuencias homólogas |
-| MAFFT / MUSCLE | Alineamiento múltiple |
-| IQ-TREE / FastTree | Reconstrucción filogenética |
-| ape / ggtree / ggplot2 | Análisis y visualización de árboles |
+| Neighbor-Joining | Reconstrucción a partir de una matriz de distancias genéticas. |
+| Máxima verosimilitud | Reconstrucción mediante un modelo de evolución molecular. |
 
+Para Neighbor-Joining se podrá utilizar el paquete `ape` de R. Para máxima verosimilitud se valorará el uso de IQ-TREE o FastTree.
+
+La herramienta, el modelo y los parámetros definitivos se documentarán cuando se implemente el análisis.
+
+## Soporte de las ramas
+
+Se prevé evaluar el soporte mediante procedimientos adecuados al método seleccionado, como bootstrap.
+
+Se registrarán el procedimiento y sus parámetros. Los valores de soporte se interpretarán como medidas de estabilidad o respaldo de las agrupaciones, sin presentarlos como una certeza absoluta.
+
+## Interpretación
+
+La interpretación considerará:
+
+- Agrupaciones y clados.
+- Longitudes de las ramas, cuando corresponda.
+- Valores de soporte.
+- Calidad y extensión del alineamiento.
+- Limitaciones de las secuencias seleccionadas.
+
+No se interpretará un árbol como enraizado salvo que se haya definido y justificado el procedimiento de enraizamiento.
+
+## Exportación y visualización
+
+| Archivo previsto | Contenido |
+|---|---|
+| FASTA o CLUSTAL | Alineamiento múltiple. |
+| CSV | Medidas de conservación, distancias y resúmenes. |
+| Newick | Árbol filogenético. |
+| PNG o PDF | Representaciones gráficas. |
+
+Los alineamientos se guardarán en `results/alignments/`, los árboles en `results/phylogenetic_trees/` y los informes en `results/reports/`.
+
+Se prevé utilizar herramientas de R como `ape`, `ggtree` y `ggplot2` para la representación e interpretación de resultados.
+
+## Reproducibilidad
+
+Cada análisis registrará las secuencias utilizadas, las herramientas y versiones, los parámetros, el modelo evolutivo, el procedimiento de soporte y cualquier modificación del alineamiento.
+
+## Documentación relacionada
+
+- [Presentación general](../README.md)
+- [Metodología prevista](metodologia.md)
+- [Módulos de Python](../src/README.md)
+- [Resultados previstos](../results/README.md)
