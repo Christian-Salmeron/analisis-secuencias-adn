@@ -1,1 +1,1 @@
-Identificar posiciones conservadas y variables en los alineamientos.
+# Identificar posiciones conservadas y variables en los alineamientos.
